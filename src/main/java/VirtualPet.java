@@ -19,6 +19,8 @@ public class VirtualPet {
 		super();
 		this.name = name;
 	}
+	
+	
 
 	
 	
