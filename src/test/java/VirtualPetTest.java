@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -52,4 +53,54 @@ public class VirtualPetTest {
 	        assertEquals(initialHunger + 1, hungerAfterTick);
 
 }
+	
+	@Test
+	public void hungerShouldBeLowerAfterFeedingUnless0() {
+		VirtualPet pet = new VirtualPet("");
+		int initialHunger = pet.getHunger();
+        pet.feed();
+        int hungerAfterFeed = pet.getHunger();
+
+        assertTrue(initialHunger >= hungerAfterFeed);
+	}
+	
+	@Test
+	public void hungerLevelCantGoBelow0() {
+		VirtualPet pet = new VirtualPet("");
+		pet.feed();
+		int currentHunger = pet.getHunger();
+		assertTrue(currentHunger >= 0);
+	}
+	@Test
+	public void thirstShouldBeLowerAfterWateringUnless0() {
+		VirtualPet pet = new VirtualPet("");
+		int initialThirst = pet.getThirst();
+        pet.water();
+        int thirstAfterWater = pet.getThirst();
+
+        assertTrue(initialThirst >= thirstAfterWater);
+	}
+	@Test
+	public void thirstLevelCantGoBelow0() {
+		VirtualPet pet = new VirtualPet("");
+		pet.water();
+		int currentThirst = pet.getThirst();
+		assertTrue(currentThirst >= 0);
+	}
+	@Test
+	public void boredomShouldBeLowerAfterPlayingUnless0() {
+		VirtualPet pet = new VirtualPet("");
+		int initialBoredom = pet.getBoredom();
+        pet.play();
+        int boredomAfterPlay = pet.getBoredom();
+
+        assertTrue(initialBoredom >= boredomAfterPlay);
+	}
+	@Test
+	public void boredomLevelCantGoBelow0() {
+		VirtualPet pet = new VirtualPet("");
+		pet.play();
+		int currentBoredom = pet.getBoredom();
+		assertTrue(currentBoredom >= 0);
+	}
 }
