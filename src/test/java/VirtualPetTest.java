@@ -3,12 +3,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class VirtualPetTest {
-	VirtualPet underTest = new VirtualPet();
-
-	@Test
-	public void shouldBeAbleToCreatePet() {
-		VirtualPet pet = new VirtualPet();
-	}
+	VirtualPet underTest = new VirtualPet("Jeff");
 
 	@Test
 	public void petShouldHaveName() {
@@ -29,11 +24,32 @@ public class VirtualPetTest {
 	public void petShouldHaveThirstValue0() {
 		int expected = underTest.getThirst();
 		assertEquals(expected, 0);
+
 	}
+
 	@Test
-	public void petShouldHaveThirsValue0() {
-		int expected = underTest.getThirst();
+	public void petShouldHaveBoredomValue0() {
+		int expected = underTest.getBoredom();
 		assertEquals(expected, 0);
+
 	}
-	
+
+	@Test
+	public void petShouldHaveAgeOf1() {
+		int expected = underTest.getAge();
+		assertEquals(expected, 1);
+
+	}
+
+	@Test
+	public void shouldTick() {
+	      VirtualPet pet = new VirtualPet("");
+
+	        int initialHunger = pet.getHunger();
+	        pet.tick();
+	        int hungerAfterTick = pet.getHunger();
+
+	        assertEquals(initialHunger + 1, hungerAfterTick);
+
+}
 }
