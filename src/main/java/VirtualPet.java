@@ -4,9 +4,9 @@ public class VirtualPet {
 	private String type;
 	private String name;
 
-	private int hunger = 0;
-	private int thirst = 0;
-	private int boredom = 0;
+	private int hunger = 10;
+	private int thirst = 10;
+	private int boredom = 10;
 	private int age = 1;
 
 	public VirtualPet(String type, String name) {
@@ -47,19 +47,47 @@ public class VirtualPet {
 
 	public void tick() {
 		age++;
-		hunger++;
-		thirst++;
-		boredom++;
-
-	}
-
-	public void feed() {
 		hunger--;
+		thirst--;
+		boredom--;
+		
+		if(thirst < 0) {
+			thirst = 0;
+			
+		}
+		
+		if(boredom < 0) {
+			b = 0;
+			
+		}
+		
 		if(hunger < 0) {
 			hunger = 0;
+			
 		}
 
 	}
+
+	public void feed(int foodValue) {
+		hunger =  hunger + foodValue;
+		
+		} else if (hunger >= 10) {
+			hunger = 10;
+		}
+	}
+	
+     public void feedMeal() {
+			
+			feed(10);
+	
+	}
+		
+	public void feedSnack() {
+			
+			feed(2);
+			
+		}
+
 	public void water() {
 		thirst--;
 		if(thirst < 0) {
