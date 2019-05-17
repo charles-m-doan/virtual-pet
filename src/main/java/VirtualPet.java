@@ -1,6 +1,7 @@
 
 public class VirtualPet {
-
+	
+	private String type;
 	private String name;
 
 	private int hunger = 0;
@@ -8,9 +9,13 @@ public class VirtualPet {
 	private int boredom = 0;
 	private int age = 1;
 
-	public VirtualPet(String name) {
+	public VirtualPet(String type, String name) {
 		super();
+		this.type = type;
 		this.name = name;
+	}
+	public String getType() {
+		return type;
 	}
 
 	public String getName() {
@@ -68,5 +73,6 @@ public class VirtualPet {
 			boredom = 0;
 		}
 	}
+
 
 }

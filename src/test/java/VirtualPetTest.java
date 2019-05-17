@@ -4,14 +4,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class VirtualPetTest {
-	VirtualPet underTest = new VirtualPet("Jeff");
+	VirtualPet underTest = new VirtualPet("Dog" , "Jeff");
 
 	@Test
+	public void petShouldHaveTypeDog() {
+		VirtualPet underTest = new VirtualPet("Dog" , "");
+		String expected = underTest.getType();
+		assertEquals(expected, "Dog");
+	}
+	
+	@Test
 	public void petShouldHaveName() {
-		VirtualPet underTest = new VirtualPet("Jeff");
-
 		String expected = underTest.getName();
-
 		assertEquals(expected, "Jeff");
 	}
 
@@ -44,7 +48,7 @@ public class VirtualPetTest {
 
 	@Test
 	public void shouldTick() {
-	      VirtualPet pet = new VirtualPet("");
+	      VirtualPet pet = new VirtualPet("Dog" , "");
 
 	        int initialHunger = pet.getHunger();
 	        pet.tick();
@@ -55,8 +59,8 @@ public class VirtualPetTest {
 }
 	
 	@Test
-	public void hungerShouldBeLowerAfterFeedingUnless0() {
-		VirtualPet pet = new VirtualPet("");
+	public void hungerShouldBeLowerAfterFeedingUnless10() {
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		int initialHunger = pet.getHunger();
         pet.feed();
         int hungerAfterFeed = pet.getHunger();
@@ -65,15 +69,15 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void hungerLevelCantGoBelow0() {
-		VirtualPet pet = new VirtualPet("");
+	public void hungerLevelCantGoAbove10() {
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		pet.feed();
 		int currentHunger = pet.getHunger();
 		assertTrue(currentHunger >= 0);
 	}
 	@Test
 	public void thirstShouldBeLowerAfterWateringUnless0() {
-		VirtualPet pet = new VirtualPet("");
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		int initialThirst = pet.getThirst();
         pet.water();
         int thirstAfterWater = pet.getThirst();
@@ -82,14 +86,14 @@ public class VirtualPetTest {
 	}
 	@Test
 	public void thirstLevelCantGoBelow0() {
-		VirtualPet pet = new VirtualPet("");
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		pet.water();
 		int currentThirst = pet.getThirst();
 		assertTrue(currentThirst >= 0);
 	}
 	@Test
 	public void boredomShouldBeLowerAfterPlayingUnless0() {
-		VirtualPet pet = new VirtualPet("");
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		int initialBoredom = pet.getBoredom();
         pet.play();
         int boredomAfterPlay = pet.getBoredom();
@@ -98,7 +102,7 @@ public class VirtualPetTest {
 	}
 	@Test
 	public void boredomLevelCantGoBelow0() {
-		VirtualPet pet = new VirtualPet("");
+		VirtualPet pet = new VirtualPet("Dog" , "");
 		pet.play();
 		int currentBoredom = pet.getBoredom();
 		assertTrue(currentBoredom >= 0);
