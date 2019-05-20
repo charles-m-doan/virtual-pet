@@ -57,7 +57,7 @@ public class VirtualPet {
 		}
 		
 		if(boredom < 0) {
-			b = 0;
+			boredom = 0;
 			
 		}
 		
@@ -70,8 +70,7 @@ public class VirtualPet {
 
 	public void feed(int foodValue) {
 		hunger =  hunger + foodValue;
-		
-		} else if (hunger >= 10) {
+	 if (hunger >= 10) {
 			hunger = 10;
 		}
 	}
