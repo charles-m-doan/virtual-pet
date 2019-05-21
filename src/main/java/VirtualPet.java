@@ -1,18 +1,46 @@
 
 public class VirtualPet {
-	
+
 	private String type;
 	private String name;
 
-	private int hunger = 5;
-	private int thirst = 5;
-	private int boredom = 5;
+	private int hunger;
+	private int thirst;
+	private int boredom;
+
+	public VirtualPet() {
+		this.type = "Dog";
+		this.name = "Rex";
+		this.hunger = 8;
+		this.thirst = 8;
+		this.boredom = 8;
+	}
 
 	public VirtualPet(String type, String name) {
-		super();
 		this.type = type;
 		this.name = name;
+		this.hunger = 8;
+		this.thirst = 8;
+		this.boredom = 8;
 	}
+
+	public VirtualPet(String type, String name, int hunger, int thirst, int boredom) {
+		this.type = type;
+		this.name = name;
+		this.hunger = hunger;
+		this.thirst = thirst;
+		this.boredom = boredom;
+	}
+
+	public String getTypeName() {
+		if (type.equals("1")) {
+			return "Dog";
+		} else if (type.equals("2")) {
+			return "Cat";
+		}
+		return "Unknown";
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -41,35 +69,39 @@ public class VirtualPet {
 		hunger--;
 		thirst--;
 		boredom--;
-		if(thirst < 0) {
+		if (thirst < 0) {
 			thirst = 0;
 		}
-		if(boredom < 0) {
+		if (boredom < 0) {
 			boredom = 0;
 		}
-		if(hunger < 0) {
+		if (hunger < 0) {
 			hunger = 0;
 		}
 	}
 
 	public void feed() {
-		hunger++;
-	 if (hunger >= 10) {
-			hunger = 10;
+		if (hunger >= 10) {
+			hunger += 0;
+		} else {
+			hunger++;
 		}
 	}
 
 	public void water() {
-		thirst++;
-		if(thirst >= 10) {
-			thirst = 10;
+		if (thirst >= 10) {
+			thirst += 0;
+		} else {
+			thirst++;
 		}
+
 	}
-	
+
 	public void play() {
-		boredom++;
-		if(boredom >= 10) {
-			boredom = 10;
+		if (boredom >= 10) {
+			boredom += 0;
+		} else {
+			boredom++;
 		}
 	}
 

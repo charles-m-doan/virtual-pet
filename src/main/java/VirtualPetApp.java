@@ -5,14 +5,26 @@ public class VirtualPetApp {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome Ranger");
-		String type = promptUserForPetType(input);
+
+		String name = "";
+		String type = "";
+
+		type = promptUserForPetType(input);
 		if (type.equals("1")) {
 			System.out.println("Please name your Dog");
-			String name = promptUserForPetName(input);
+			name = promptUserForPetName(input);
+		} else if (type.equals("2")) {
+			System.out.println("Please name your Cat");
+			name = promptUserForPetName(input);
 		} else {
 			System.out.println("Type not recognized");
 		}
 
+		VirtualPet pet1 = new VirtualPet(type, name);
+		System.out.println(pet1.getType() + " : " + pet1.getName());
+
+		VirtualPet pet2 = new VirtualPet("2", "Bill");
+		System.out.println(pet2.getType() + " : " + pet2.getName());
 	}
 
 	public static String promptUserForPetType(Scanner input) {
