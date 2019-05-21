@@ -105,4 +105,9 @@ public class VirtualPet {
 		}
 	}
 
+	public String toString() {
+		return name + " | " + type + " | " + hunger + " | " + thirst + " | " + boredom;
+
+	}
+
 }

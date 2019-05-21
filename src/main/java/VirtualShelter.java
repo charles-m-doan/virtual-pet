@@ -24,4 +24,17 @@ public class VirtualShelter {
 
 	}
 
+	public String toString() {
+		String returnString = "Name | Type | Hunger | Thirst | Boredom \n";
+		for (String key : petMap.keySet()) {
+			VirtualPet pet = petMap.get(key);
+			returnString += pet.toString() + "\n";
+			
+			
+		}
+
+		return returnString;
+
+	}
+
 }

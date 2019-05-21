@@ -46,4 +46,22 @@ public class VirtualShelterTest {
 		assertTrue(removedPet != null);
 		
 	}
+	@Test
+	public void playerCanViewPetStats() {
+		VirtualPet testPet = new VirtualPet();
+		String stats = testPet.toString();
+		System.out.println(stats);
+	}
+	@Test
+	public void playerCanViewStatsForAllPets() {
+		VirtualShelter testShelter = new VirtualShelter();
+		VirtualPet testPet1 = new VirtualPet();
+		VirtualPet testPet2 = new VirtualPet("Cat", "Mittens");
+		VirtualPet testPet3 = new VirtualPet("Horse", "Ed");
+		testShelter.addPet(testPet1);
+		testShelter.addPet(testPet2);
+		testShelter.addPet(testPet3);
+	
+		System.out.println(testShelter);
+	} 
 }
