@@ -10,7 +10,7 @@ public class VirtualPet {
 
 	public VirtualPet() {
 		this.type = "Dog";
-		this.name = "Rex";
+		this.name = "Jeff";
 		this.hunger = 8;
 		this.thirst = 8;
 		this.boredom = 8;
