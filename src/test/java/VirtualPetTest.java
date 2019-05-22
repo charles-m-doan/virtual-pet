@@ -4,15 +4,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class VirtualPetTest {
-	VirtualPet underTest1 = new VirtualPet("1", "Jeff");
-	VirtualPet underTest2 = new VirtualPet("2", "Bill");
-
-	@Test
-	public void petShouldHaveTypeDog() {
-		VirtualPet underTest1 = new VirtualPet("Dog", "");
-		String expected = underTest1.getType();
-		assertEquals(expected, "Dog");
-	}
+	VirtualPet underTest1 = new VirtualPet("Jeff");
+	VirtualPet underTest2 = new VirtualPet("Bill");
 
 	@Test
 	public void petShouldHaveName() {
@@ -96,12 +89,5 @@ public class VirtualPetTest {
 		int currentBoredom = underTest1.getBoredom();
 		assertTrue(currentBoredom >= 0);
 	}
-
-	@Test
-	public void typeNameShouldBeCatAfterTypeSetTo2() {
-		assertTrue(underTest2.getTypeName().equals("Cat"));
-	}
-	
-	
 
 }

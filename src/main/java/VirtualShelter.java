@@ -29,12 +29,8 @@ public class VirtualShelter {
 		for (String key : petMap.keySet()) {
 			VirtualPet pet = petMap.get(key);
 			returnString += pet.toString() + "\n";
-			
-			
 		}
-
 		return returnString;
-
 	}
 
 }

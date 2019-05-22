@@ -20,10 +20,10 @@ public class VirtualPetApp {
 			System.out.println("Type not recognized");
 		}
 
-		VirtualPet pet1 = new VirtualPet(type, name);
+		VirtualPet pet1 = new VirtualPet(name);
 		System.out.println(pet1.getType() + " : " + pet1.getName());
 
-		VirtualPet pet2 = new VirtualPet("2", "Bill");
+		VirtualPet pet2 = new VirtualPet("Bill");
 		System.out.println(pet2.getType() + " : " + pet2.getName());
 	}
 

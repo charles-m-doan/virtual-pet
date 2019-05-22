@@ -1,48 +1,52 @@
+import java.util.Random;
 
 public class VirtualPet {
 
-	private String type;
 	private String name;
 
-	private int hunger;
-	private int thirst;
-	private int boredom;
+	protected int hunger;
+	protected int thirst;
+	protected int boredom;
+
+	protected int hungerRate = 1;
+	protected int thirstRate = 1;
+	protected int boredomRate = 1;
+
+	protected int minHungerCapacity;
+	protected int maxHungerCapacity;
+
+	protected int minThirstCapacity;
+	protected int maxThirstCapacity;
+
+	protected int minBoredomCapacity;
+	protected int maxBoredomCapacity;
 
 	public VirtualPet() {
-		this.type = "Dog";
-		this.name = "Jeff";
+		this.name = "Rex";
 		this.hunger = 8;
 		this.thirst = 8;
 		this.boredom = 8;
+
+		this.hungerRate = 1;
+		this.thirstRate = 1;
+		this.boredomRate = 1;
+		this.minHungerCapacity = 0;
+		this.maxHungerCapacity = 100;
+		this.minThirstCapacity = 0;
+		this.maxThirstCapacity = 100;
+		this.minBoredomCapacity = 0;
+		this.maxBoredomCapacity = 100;
 	}
 
-	public VirtualPet(String type, String name) {
-		this.type = type;
+	public VirtualPet(String name) {
 		this.name = name;
 		this.hunger = 8;
 		this.thirst = 8;
 		this.boredom = 8;
-	}
-
-	public VirtualPet(String type, String name, int hunger, int thirst, int boredom) {
-		this.type = type;
-		this.name = name;
-		this.hunger = hunger;
-		this.thirst = thirst;
-		this.boredom = boredom;
-	}
-
-	public String getTypeName() {
-		if (type.equals("1")) {
-			return "Dog";
-		} else if (type.equals("2")) {
-			return "Cat";
-		}
-		return "Unknown";
 	}
 
 	public String getType() {
-		return type;
+		return "GenericPet";
 	}
 
 	public String getName() {
@@ -61,10 +65,6 @@ public class VirtualPet {
 		return boredom;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void tick() {
 		hunger--;
 		thirst--;
@@ -77,6 +77,27 @@ public class VirtualPet {
 		}
 		if (hunger < 0) {
 			hunger = 0;
+		}
+	}
+
+	protected void decreaseHunger(int amountToDecrease) {
+		this.hunger -= amountToDecrease;
+		if (hunger < 0) {
+			hunger = 0;
+		}
+	}
+
+	protected void decreaseThirst(int amountToDecrease) {
+		this.thirst -= amountToDecrease;
+		if (thirst < 0) {
+			thirst = 0;
+		}
+	}
+
+	protected void decreaseBoredom(int amountToDecrease) {
+		this.boredom -= amountToDecrease;
+		if (boredom < 0) {
+			boredom = 0;
 		}
 	}
 
@@ -105,9 +126,15 @@ public class VirtualPet {
 		}
 	}
 
-	public String toString() {
-		return name + " | " + type + " | " + hunger + " | " + thirst + " | " + boredom;
+	protected static int getValueBetweenRange(int min, int max) {
+		int randomValue = 0;
+		Random random = new Random(System.nanoTime());
+		randomValue = min + random.nextInt((max - min) + 1);
+		return randomValue;
+	}
 
+	public String toString() {
+		return name + " | " + this.getType() + " | " + this.hunger + " | " + this.thirst + " | " + this.boredom;
 	}
 
 }
