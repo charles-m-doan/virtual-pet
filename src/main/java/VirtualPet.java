@@ -115,7 +115,6 @@ public class VirtualPet {
 		} else {
 			thirst++;
 		}
-
 	}
 
 	public void play() {
