@@ -1,30 +1,35 @@
-public class VirtualRobotCat extends VirtualPet {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-	public VirtualRobotCat(String name) {
-		super(name);
-		this.hungerRate = 4;
-		this.thirstRate = 2;
-		this.boredomRate = 2;
-		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = 45;
-		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = 30;
-		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
+import org.junit.Test;
 
-		this.hunger = getValueBetweenRange(45, maxHungerCapacity);
-		this.thirst = getValueBetweenRange(30, maxThirstCapacity);
-		this.boredom = getValueBetweenRange(100, maxBoredomCapacity);
+public class VirtualRobotCatTest {
+
+	public VirtualRobotCatTest() {
 	}
-
-	public String getType() {
-		return "RobotCat";
+	
+	@Test
+	public void shouldHaveTypeRobotCat() {
+		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		assertEquals("RobotCat", testRobotCat.getType());
 	}
-
-	public void tick() {
-		decreaseHunger(hungerRate);
-		decreaseThirst(thirstRate);
-		decreaseBoredom(boredomRate);
+	
+	@Test
+	public void shouldHaveHungerOf4Less() {
+		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		int expectedHunger = testRobotCat.getHunger() - 8;
+		testRobotCat.tick();
+		testRobotCat.tick();
+		int actualHunger = testRobotCat.getHunger();
+		assertEquals(expectedHunger, actualHunger);
 	}
+	
+	@Test
+	public void hungerShouldBetween15And45() {
+		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		System.out.println(testRobotCat);
+		assertTrue((testRobotCat.getHunger() >= 45 && testRobotCat.getHunger() <= 45));
+	}
+	
 
 }
