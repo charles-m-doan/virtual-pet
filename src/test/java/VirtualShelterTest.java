@@ -7,6 +7,7 @@ import org.junit.Test;
 public class VirtualShelterTest {
 
 	public VirtualShelterTest() {
+		
 	}
 
 	@Test
