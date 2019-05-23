@@ -17,7 +17,7 @@ public class AppInterface {
 	private static final String DEFAULT_MENU_PROMPT = "Command: ";
 
 	// MAIN MENU
-	private static final String[] MAIN_MENU_OPTIONS = { "Create a virtual pet.", "Play with current pet.",
+	private static final String[] MAIN_MENU_OPTIONS = { "Create a virtual pet.", "Play wi1th current pet.",
 			"Feed current pet.", "Water current pet.", "Place current pet in shelter.", "Take pet from shelter.",
 			"See status of pets in shelter.", "Quit" };
 	private static final String MAIN_MENU_DISPLAY = assembleMenuDisplay(MAIN_MENU_OPTIONS);

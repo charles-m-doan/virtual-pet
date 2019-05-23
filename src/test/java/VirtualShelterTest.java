@@ -32,7 +32,7 @@ public class VirtualShelterTest {
 	public void canTakePetFromVirtualShelter() {
 		int numberOfPetsAfter = 0;
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet());
+		testShelter.addPet(new VirtualPet("Jeff"));
 		testShelter.takePet("Jeff");
 		int actualNumberOfPets = testShelter.getNumberOfPets();
 		assertEquals(numberOfPetsAfter, actualNumberOfPets);
@@ -41,7 +41,7 @@ public class VirtualShelterTest {
 	@Test
 	public void canReturnPetToPlayer() {
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet());
+		testShelter.addPet(new VirtualPet("Jeff"));
 		VirtualPet removedPet = testShelter.takePet("Jeff");
 		assertTrue(removedPet != null);
 
