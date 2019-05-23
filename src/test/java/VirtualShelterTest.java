@@ -22,7 +22,7 @@ public class VirtualShelterTest {
 	public void canAddPetToVirtualShelter() {
 		int numberOfPetsAfter = 1;
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet());
+		testShelter.addPet(new VirtualPet("boy"));
 		int actualNumberOfPets = testShelter.getNumberOfPets();
 		assertEquals(numberOfPetsAfter, actualNumberOfPets);
 
@@ -49,7 +49,7 @@ public class VirtualShelterTest {
 
 	@Test
 	public void playerCanViewPetStats() {
-		VirtualPet testPet = new VirtualPet();
+		VirtualPet testPet = new VirtualPet("dog");
 		String stats = testPet.toString();
 		System.out.println(stats);
 	}
@@ -57,7 +57,7 @@ public class VirtualShelterTest {
 	@Test
 	public void playerCanViewStatsForAllPets() {
 		VirtualShelter testShelter = new VirtualShelter();
-		VirtualPet testPet1 = new VirtualPet();
+		VirtualPet testPet1 = new VirtualPet("other dog");
 		VirtualPet testPet2 = new VirtualPet("Mittens");
 		VirtualPet testPet3 = new VirtualPet("Ed");
 		testShelter.addPet(testPet1);
@@ -65,5 +65,21 @@ public class VirtualShelterTest {
 		testShelter.addPet(testPet3);
 
 		System.out.println(testShelter);
+	}
+	
+	@Test
+	public void playerCanPlayWithTwoPets() {
+		VirtualShelter testShelter = new VirtualShelter();
+		VirtualPet testPet1 = new VirtualPet("other dog");
+		VirtualPet testPet2 = new VirtualPet("Mittens");
+		VirtualPet testPet3 = new VirtualPet("Ed");
+		testShelter.addPet(testPet1);
+		testShelter.addPet(testPet2);
+		testShelter.addPet(testPet3);
+		
+		System.out.println(testShelter);
+		testShelter.playWithPets(new String[] {"other dog", "Mittens", "Ed"});
+		System.out.println(testShelter);
+		
 	}
 }

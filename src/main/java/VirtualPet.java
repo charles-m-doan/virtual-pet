@@ -7,10 +7,12 @@ public class VirtualPet {
 	protected int hunger;
 	protected int thirst;
 	protected int boredom;
+	protected int health;
 
-	protected int hungerRate = 1;
-	protected int thirstRate = 1;
-	protected int boredomRate = 1;
+	protected int hungerRate;
+	protected int thirstRate;
+	protected int boredomRate;
+	protected int healthRate;
 
 	protected int minHungerCapacity;
 	protected int maxHungerCapacity;
@@ -21,28 +23,23 @@ public class VirtualPet {
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
 
-	public VirtualPet() {
-		this.name = "Rex";
+	public VirtualPet(String name) {
+		this.name = name;
 		this.hunger = 8;
 		this.thirst = 8;
 		this.boredom = 8;
+		this.health = 100;
 
 		this.hungerRate = 1;
 		this.thirstRate = 1;
 		this.boredomRate = 1;
+		this.healthRate = 1;
 		this.minHungerCapacity = 0;
 		this.maxHungerCapacity = 100;
 		this.minThirstCapacity = 0;
 		this.maxThirstCapacity = 100;
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = 100;
-	}
-
-	public VirtualPet(String name) {
-		this.name = name;
-		this.hunger = 8;
-		this.thirst = 8;
-		this.boredom = 8;
 	}
 
 	public String getType() {
@@ -65,19 +62,16 @@ public class VirtualPet {
 		return boredom;
 	}
 
+	public int getHealth() {
+		return health;
+	}
+
 	public void tick() {
-		hunger--;
-		thirst--;
-		boredom--;
-		if (thirst < 0) {
-			thirst = 0;
-		}
-		if (boredom < 0) {
-			boredom = 0;
-		}
-		if (hunger < 0) {
-			hunger = 0;
-		}
+		decreaseHunger(hungerRate);
+		decreaseThirst(thirstRate);
+		decreaseBoredom(boredomRate);
+		decreaseHealth(healthRate);
+
 	}
 
 	protected void decreaseHunger(int amountToDecrease) {
@@ -98,6 +92,13 @@ public class VirtualPet {
 		this.boredom -= amountToDecrease;
 		if (boredom < 0) {
 			boredom = 0;
+		}
+	}
+
+	protected void decreaseHealth(int amountToDecrease) {
+		this.health -= amountToDecrease;
+		if (health < 0) {
+			health = 0;
 		}
 	}
 
@@ -125,6 +126,10 @@ public class VirtualPet {
 		}
 	}
 
+	public void vetVisit() {
+		health = 100;
+	}
+
 	protected static int getValueBetweenRange(int min, int max) {
 		int randomValue = 0;
 		Random random = new Random(System.nanoTime());
@@ -133,7 +138,8 @@ public class VirtualPet {
 	}
 
 	public String toString() {
-		return name + " | " + this.getType() + " | " + this.hunger + " | " + this.thirst + " | " + this.boredom;
+		return name + " | " + this.getType() + " | " + this.health + " | " + this.hunger + " | " + this.thirst + " | "
+				+ this.boredom;
 	}
 
 }

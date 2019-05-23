@@ -19,7 +19,7 @@ public class AppInterface {
 	// MAIN MENU
 	private static final String[] MAIN_MENU_OPTIONS = { "Create a virtual pet.", "Play wi1th current pet.",
 			"Feed current pet.", "Water current pet.", "Place current pet in shelter.", "Take pet from shelter.",
-			"See status of pets in shelter.", "Quit" };
+			"See status of pets in shelter.", "Take pet to Vet.", "Quit" };
 	private static final String MAIN_MENU_DISPLAY = assembleMenuDisplay(MAIN_MENU_OPTIONS);
 
 	// PET CREATION
@@ -84,6 +84,8 @@ public class AppInterface {
 						feedback = petShelter.toString();
 					}
 				} else if (command == 8) {
+					feedback = "You Chose: \"" + MAIN_MENU_OPTIONS[command - 1] + "\"";
+				} else if (command == 9) {
 					feedback = "You Chose: \"" + MAIN_MENU_OPTIONS[command - 1] + "\"";
 					continueRunning = false;
 				} else {
