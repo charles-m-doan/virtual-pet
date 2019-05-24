@@ -1,22 +1,25 @@
+package robotpets;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class VirtualRobotCatTest {
+import robotpets.RobotCat;
 
-	public VirtualRobotCatTest() {
+public class RobotCatTest {
+
+	public RobotCatTest() {
 	}
 	
 	@Test
 	public void shouldHaveTypeRobotCat() {
-		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		RobotCat testRobotCat = new RobotCat("George");
 		assertEquals("RobotCat", testRobotCat.getType());
 	}
 	
 	@Test
 	public void shouldHaveHungerOf4Less() {
-		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		RobotCat testRobotCat = new RobotCat("George");
 		int expectedHunger = testRobotCat.getHunger() - 8;
 		testRobotCat.tick();
 		testRobotCat.tick();
@@ -26,7 +29,7 @@ public class VirtualRobotCatTest {
 	
 	@Test
 	public void hungerShouldBetween15And45() {
-		VirtualRobotCat testRobotCat = new VirtualRobotCat("George");
+		RobotCat testRobotCat = new RobotCat("George");
 		System.out.println(testRobotCat);
 		assertTrue((testRobotCat.getHunger() >= 45 && testRobotCat.getHunger() <= 45));
 	}

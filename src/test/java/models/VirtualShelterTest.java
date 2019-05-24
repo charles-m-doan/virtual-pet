@@ -1,8 +1,12 @@
+package models;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
+
+import models.VirtualPet;
+import models.VirtualShelter;
 
 public class VirtualShelterTest {
 

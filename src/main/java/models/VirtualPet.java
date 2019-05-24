@@ -1,3 +1,4 @@
+package models;
 import java.util.Random;
 
 public class VirtualPet {
@@ -15,7 +16,10 @@ public class VirtualPet {
 
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
-
+	
+	public VirtualPet() {
+	}
+	
 	public VirtualPet(String name) {
 		this.name = name;
 		this.boredom = 8;
@@ -70,21 +74,27 @@ public class VirtualPet {
 			boredom++;
 		}
 	}
+	
+	public void walk() {
+		if (boredom >= 10) {
+			boredom += 0;
+		} else {
+			boredom++;
+		}
+	}
 
 	public void vetVisit() {
 		health = 100;
 	}
 
 	protected static int getValueBetweenRange(int min, int max) {
-		int randomValue = 0;
 		Random random = new Random(System.nanoTime());
-		randomValue = min + random.nextInt((max - min) + 1);
+		int randomValue = min + random.nextInt((max - min) + 1);
 		return randomValue;
 	}
 
-	public String toString() {
-		return name + " | " + this.getType() + " | " + this.health + " | " + this.hunger + " | " + this.thirst + " | "
-				+ this.boredom;
-	}
-
+	// public String toString() {
+		// return name + " | " + this.getType() + " | " + this.health + " | " + this.hunger + " | " + this.thirst + " | "
+			//	+ this.boredom;
+// }
 }

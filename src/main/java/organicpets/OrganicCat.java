@@ -1,9 +1,9 @@
-import java.util.Random;
+package organicpets;
 
-public class VirtualCat extends OrganicPet {
+public class OrganicCat extends OrganicPet {
 
-	public VirtualCat(String name) {
-		super(name);
+	public OrganicCat(String name) {
+		this.name = name;
 		this.hungerRate = 2;
 		this.thirstRate = 1;
 		this.boredomRate = 1;

@@ -1,11 +1,10 @@
+package organicpets;
 
-import java.util.Random;
-
-public class VirtualHorse extends OrganicPet {
+public class OrganicHorse extends OrganicPet {
 	
 
-		public VirtualHorse (String name) {
-			super(name);
+		public OrganicHorse (String name) {
+			this.name = name;
 			this.hungerRate = 7;
 			this.thirstRate = 5;
 			this.boredomRate = 5;

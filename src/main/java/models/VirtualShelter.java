@@ -1,3 +1,4 @@
+package models;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -33,7 +34,7 @@ public class VirtualShelter {
 		}
 		return returnString;
 	}
-
+	
 	public void playWithPets(String[] petNames) {
 		for (int i = 0; i < petNames.length; i++) {
 			String key = petNames[i];
@@ -42,7 +43,7 @@ public class VirtualShelter {
 		}
 	}
 
-	public void feedMultiplePets(String[] petNames) {
+	/*public void feedMultiplePets(String[] petNames) {
 		for (int i = 0; i < petNames.length; i++) {
 			String key = petNames[i];
 			VirtualPet pet = petMap.get(key);
@@ -57,6 +58,7 @@ public class VirtualShelter {
 			pet.water();
 		}
 	}
+	*/
 	
 	public void vetVisitMultiplePets(String[] petNames) {
 		for (int i = 0; i < petNames.length; i++) {

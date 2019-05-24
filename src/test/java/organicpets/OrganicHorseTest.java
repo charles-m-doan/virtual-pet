@@ -1,23 +1,26 @@
+package organicpets;
 
 	import static org.junit.Assert.assertEquals;
 	import static org.junit.Assert.assertTrue;
 
 	import org.junit.Test;
 
-	public class VirtualHorseTest {
+import organicpets.OrganicHorse;
 
-		public VirtualHorseTest() {
+	public class OrganicHorseTest {
+
+		public OrganicHorseTest() {
 		}
 		
 		@Test
 		public void shouldHaveTypeHorse() {
-			VirtualHorse testHorse = new VirtualHorse("Eddard");
+			OrganicHorse testHorse = new OrganicHorse("Eddard");
 			assertEquals("Horse", testHorse.getType());
 		}
 		
 		@Test
 		public void shouldHaveHungerOf7Less() {
-			VirtualHorse testHorse = new VirtualHorse("Eddard");
+			OrganicHorse testHorse = new OrganicHorse("Eddard");
 			int expectedHunger = testHorse.getHunger() - 14;
 			testHorse.tick();
 			testHorse.tick();
@@ -27,7 +30,7 @@
 		
 		@Test
 		public void hungerShouldBetween25And100() {
-			VirtualHorse testHorse = new VirtualHorse("Eddard");
+			OrganicHorse testHorse = new OrganicHorse("Eddard");
 			System.out.println(testHorse);
 			assertTrue((testHorse.getHunger() >= 25 && testHorse.getHunger() <= 100));
 

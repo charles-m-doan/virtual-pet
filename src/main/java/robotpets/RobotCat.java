@@ -1,6 +1,7 @@
-public class VirtualRobotCat extends RoboticPet {
+package robotpets;
+public class RobotCat extends RoboticPet {
 
-	public VirtualRobotCat(String name) {
+	public RobotCat(String name) {
 		super(name);
 		this.hungerRate = 4;
 		this.thirstRate = 2;
