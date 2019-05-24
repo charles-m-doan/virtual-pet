@@ -1,5 +1,5 @@
 
-public class VirtualDog extends VirtualPet {
+public class VirtualDog extends OrganicPet {
 
 	public VirtualDog(String name) {
 		super(name);

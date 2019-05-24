@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class VirtualCat extends VirtualPet {
+public class VirtualCat extends OrganicPet {
 
 	public VirtualCat(String name) {
 		super(name);

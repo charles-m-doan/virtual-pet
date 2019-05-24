@@ -1,7 +1,7 @@
 
 import java.util.Random;
 
-public class VirtualHorse extends VirtualPet {
+public class VirtualHorse extends OrganicPet {
 	
 
 		public VirtualHorse (String name) {

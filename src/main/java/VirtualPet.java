@@ -2,42 +2,27 @@ import java.util.Random;
 
 public class VirtualPet {
 
-	private String name;
+	protected String name;
 
-	protected int hunger;
-	protected int thirst;
+
 	protected int boredom;
 	protected int health;
 
-	protected int hungerRate;
-	protected int thirstRate;
+	
 	protected int boredomRate;
 	protected int healthRate;
 
-	protected int minHungerCapacity;
-	protected int maxHungerCapacity;
-
-	protected int minThirstCapacity;
-	protected int maxThirstCapacity;
 
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
 
 	public VirtualPet(String name) {
 		this.name = name;
-		this.hunger = 8;
-		this.thirst = 8;
 		this.boredom = 8;
 		this.health = 100;
 
-		this.hungerRate = 1;
-		this.thirstRate = 1;
 		this.boredomRate = 1;
 		this.healthRate = 1;
-		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = 100;
-		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = 100;
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = 100;
 	}
@@ -50,14 +35,6 @@ public class VirtualPet {
 		return name;
 	}
 
-	public int getHunger() {
-		return hunger;
-	}
-
-	public int getThirst() {
-		return thirst;
-	}
-
 	public int getBoredom() {
 		return boredom;
 	}
@@ -67,25 +44,9 @@ public class VirtualPet {
 	}
 
 	public void tick() {
-		decreaseHunger(hungerRate);
-		decreaseThirst(thirstRate);
 		decreaseBoredom(boredomRate);
 		decreaseHealth(healthRate);
 
-	}
-
-	protected void decreaseHunger(int amountToDecrease) {
-		this.hunger -= amountToDecrease;
-		if (hunger < 0) {
-			hunger = 0;
-		}
-	}
-
-	protected void decreaseThirst(int amountToDecrease) {
-		this.thirst -= amountToDecrease;
-		if (thirst < 0) {
-			thirst = 0;
-		}
 	}
 
 	protected void decreaseBoredom(int amountToDecrease) {
@@ -99,22 +60,6 @@ public class VirtualPet {
 		this.health -= amountToDecrease;
 		if (health < 0) {
 			health = 0;
-		}
-	}
-
-	public void feed() {
-		if (hunger >= 10) {
-			hunger += 0;
-		} else {
-			hunger++;
-		}
-	}
-
-	public void water() {
-		if (thirst >= 10) {
-			thirst += 0;
-		} else {
-			thirst++;
 		}
 	}
 

@@ -1,4 +1,4 @@
-public class VirtualRobotCat extends VirtualPet {
+public class VirtualRobotCat extends RoboticPet {
 
 	public VirtualRobotCat(String name) {
 		super(name);
