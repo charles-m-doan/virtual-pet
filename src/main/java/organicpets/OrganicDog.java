@@ -1,8 +1,9 @@
+package organicpets;
 
-public class VirtualDog extends OrganicPet {
+public class OrganicDog extends OrganicPet {
 
-	public VirtualDog(String name) {
-		super(name);
+	public OrganicDog(String name) {
+		this.name = name;
 		this.hungerRate = 5;
 		this.thirstRate = 5;
 		this.boredomRate = 5;
@@ -21,11 +22,15 @@ public class VirtualDog extends OrganicPet {
 	public String getType() {
 		return "Dog";
 	}
-
+	
 	public void tick() {
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
-		decreaseBoredom(boredomRate);
-	}
+		decreaseTicksUntilSoiled();
+		decreaseHealth(healthRate);
+		if(soiled == true) {
+			decreaseHealth(5);
 
+	}
+	}
 }

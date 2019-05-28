@@ -1,8 +1,15 @@
+package models;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
+
+import models.VirtualPet;
+import models.VirtualShelter;
+import organicpets.OrganicCat;
+import organicpets.OrganicDog;
+import organicpets.OrganicHorse;
 
 public class VirtualShelterTest {
 
@@ -22,7 +29,7 @@ public class VirtualShelterTest {
 	public void canAddPetToVirtualShelter() {
 		int numberOfPetsAfter = 1;
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet("boy"));
+		testShelter.addPet(new OrganicDog("boy"));
 		int actualNumberOfPets = testShelter.getNumberOfPets();
 		assertEquals(numberOfPetsAfter, actualNumberOfPets);
 
@@ -32,7 +39,7 @@ public class VirtualShelterTest {
 	public void canTakePetFromVirtualShelter() {
 		int numberOfPetsAfter = 0;
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet("Jeff"));
+		testShelter.addPet(new OrganicDog("Jeff"));
 		testShelter.takePet("Jeff");
 		int actualNumberOfPets = testShelter.getNumberOfPets();
 		assertEquals(numberOfPetsAfter, actualNumberOfPets);
@@ -41,7 +48,7 @@ public class VirtualShelterTest {
 	@Test
 	public void canReturnPetToPlayer() {
 		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new VirtualPet("Jeff"));
+		testShelter.addPet(new OrganicDog("Jeff"));
 		VirtualPet removedPet = testShelter.takePet("Jeff");
 		assertTrue(removedPet != null);
 
@@ -49,7 +56,7 @@ public class VirtualShelterTest {
 
 	@Test
 	public void playerCanViewPetStats() {
-		VirtualPet testPet = new VirtualPet("dog");
+		VirtualPet testPet = new OrganicDog("dog");
 		String stats = testPet.toString();
 		System.out.println(stats);
 	}
@@ -57,9 +64,9 @@ public class VirtualShelterTest {
 	@Test
 	public void playerCanViewStatsForAllPets() {
 		VirtualShelter testShelter = new VirtualShelter();
-		VirtualPet testPet1 = new VirtualPet("other dog");
-		VirtualPet testPet2 = new VirtualPet("Mittens");
-		VirtualPet testPet3 = new VirtualPet("Ed");
+		VirtualPet testPet1 = new OrganicDog("other dog");
+		VirtualPet testPet2 = new OrganicCat("Mittens");
+		VirtualPet testPet3 = new OrganicHorse("Ed");
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);
@@ -70,9 +77,9 @@ public class VirtualShelterTest {
 	@Test
 	public void playerCanPlayWithTwoPets() {
 		VirtualShelter testShelter = new VirtualShelter();
-		VirtualPet testPet1 = new VirtualPet("other dog");
-		VirtualPet testPet2 = new VirtualPet("Mittens");
-		VirtualPet testPet3 = new VirtualPet("Ed");
+		VirtualPet testPet1 = new OrganicDog("other dog");
+		VirtualPet testPet2 = new OrganicCat("Mittens");
+		VirtualPet testPet3 = new OrganicHorse("Ed");
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);

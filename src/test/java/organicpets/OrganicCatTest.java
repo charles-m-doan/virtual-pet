@@ -1,22 +1,25 @@
+package organicpets;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class VirtualCatTest {
+import organicpets.OrganicCat;
 
-	public VirtualCatTest() {
+public class OrganicCatTest {
+
+	public OrganicCatTest() {
 	}
 	
 	@Test
 	public void shouldHaveTypeCat() {
-		VirtualCat testCat = new VirtualCat("Ninja");
+		OrganicCat testCat = new OrganicCat("Ninja");
 		assertEquals("Cat", testCat.getType());
 	}
 	
 	@Test
 	public void shouldHaveHungerOf4Less() {
-		VirtualCat testCat = new VirtualCat("Ninja");
+		OrganicCat testCat = new OrganicCat("Ninja");
 		int expectedHunger = testCat.getHunger() - 4;
 		testCat.tick();
 		testCat.tick();
@@ -26,7 +29,7 @@ public class VirtualCatTest {
 	
 	@Test
 	public void hungerShouldBetween15And45() {
-		VirtualCat testCat = new VirtualCat("Ninja");
+		OrganicCat testCat = new OrganicCat("Ninja");
 		System.out.println(testCat);
 		assertTrue((testCat.getHunger() >= 15 && testCat.getHunger() <= 45));
 	}

@@ -1,4 +1,8 @@
+package applications;
 import java.util.Scanner;
+
+import models.VirtualShelter;
+import organicpets.OrganicCat;
 
 public class AppInterface {
 
@@ -57,7 +61,7 @@ public class AppInterface {
 						String petName = getUserResponse(PET_NAME_PROMPT);
 
 						if (petType == 2) {
-							petShelter.addPet(new VirtualCat(petName));
+							petShelter.addPet(new OrganicCat(petName));
 							feedback = "You created a " + PET_TYPE_MENU_OPTIONS[petType - 1] + " named \"" + petName
 									+ "\" and placed it in the shelter.";
 						} else {
