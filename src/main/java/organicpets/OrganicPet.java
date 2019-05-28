@@ -17,7 +17,7 @@ public abstract class OrganicPet extends VirtualPet {
 
 	protected int minThirstCapacity;
 	protected int maxThirstCapacity;
-	
+
 	public OrganicPet() {
 	}
 
@@ -78,10 +78,10 @@ public abstract class OrganicPet extends VirtualPet {
 		resetTicksUntilSoiled();
 	}
 
-	public void cleanCage( ) {
+	public void cleanCage() {
 		soiled = false;
 	}
-	
+
 	public void resetTicksUntilSoiled() {
 		ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
@@ -91,15 +91,16 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public boolean isSoiled() {
-			return soiled;
-		} 
+		return soiled;
+	}
 
 	public void decreaseTicksUntilSoiled() {
-		
-		ticksUntilSoiled-- ;
+
+		ticksUntilSoiled--;
 		if (ticksUntilSoiled <= 0) {
-			ticksUntilSoiled = 0;
 			soiled = true;
+			resetTicksUntilSoiled();
 		}
 	}
+
 }

@@ -27,7 +27,10 @@ public class OrganicDog extends OrganicPet {
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
 		decreaseTicksUntilSoiled();
+		decreaseHealth(healthRate);
+		if(soiled == true) {
+			decreaseHealth(5);
 
 	}
-
+	}
 }

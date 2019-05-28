@@ -18,6 +18,7 @@ public class OrganicPetTest {
 		underTest.tick();
 		underTest.tick();
 		assertTrue(underTest.isSoiled());
+		assertTrue(underTest.getTicksUntilSoiled() >= 3);
 
 	}
 

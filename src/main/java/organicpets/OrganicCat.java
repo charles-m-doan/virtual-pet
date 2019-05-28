@@ -27,6 +27,10 @@ public class OrganicCat extends OrganicPet {
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
 		decreaseTicksUntilSoiled();
+		decreaseHealth(healthRate);
+		if(soiled == true) {
+			decreaseHealth(7);
+		}
 
 	}
 

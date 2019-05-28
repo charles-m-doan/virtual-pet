@@ -29,6 +29,7 @@ public class OrganicHorse extends OrganicPet {
 			decreaseHunger(hungerRate);
 			decreaseThirst(thirstRate);
 			decreaseBoredom(boredomRate);
+			decreaseHealth(healthRate);
 		}
 
 	}
