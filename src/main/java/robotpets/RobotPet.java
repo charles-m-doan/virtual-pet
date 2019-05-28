@@ -4,79 +4,41 @@ import models.VirtualPet;
 
 public abstract class RobotPet extends VirtualPet {
 
-	protected int hunger;
-	protected int thirst;
-
-	protected int hungerRate;
-	protected int thirstRate;
-
-	protected int minHungerCapacity;
-	protected int maxHungerCapacity;
-
-	protected int minThirstCapacity;
-	protected int maxThirstCapacity;
+	protected int oil;
+	protected boolean outOfOil;
 
 	public RobotPet() {
-
+		this.health = 100;
+		this.oil = 100;
+		this.outOfOil = false;
 	}
 
-	public RobotPet(String name, int hunger, int thirst) {
+	public boolean isOutOfOil() {
+		return outOfOil;
+	}
+
+	public RobotPet(String name) {
 		super(name);
-		this.hunger = hunger;
-		this.thirst = thirst;
 	}
 
-	public int getHunger() {
-		return hunger;
+	public void decreaseOil(int amountToDecrease) {
+		oil -= amountToDecrease;
 	}
 
-	public int getThirst() {
-		return thirst;
+	public int getOil() {
+		return oil;
 	}
 
-	public void tick() {
-		System.out.println("Test 2");
-		decreaseHunger(hungerRate);
-		decreaseThirst(thirstRate);
-		System.out.println("Test 3");
+	public abstract void tick();
 
+	public abstract void walk();
+
+	public void fillOil() {
+		this.oil = 100;
 	}
 
-	protected void decreaseHunger(int amountToDecrease) {
-		this.hunger -= amountToDecrease;
-		if (hunger < 0) {
-			hunger = 0;
-		}
+	public void performMaitenance() {
+		this.health = 100;
 	}
 
-	protected void decreaseThirst(int amountToDecrease) {
-		this.thirst -= amountToDecrease;
-		if (thirst < 0) {
-			thirst = 0;
-		}
-	}
-
-	public void feed() {
-		if (hunger >= 10) {
-			hunger += 0;
-		} else {
-			hunger++;
-		}
-	}
-
-	public void water() {
-		if (thirst >= 10) {
-			thirst += 0;
-		} else {
-			thirst++;
-		}
-	}
-
-	public void walk() {
-		if (boredom >= 10) {
-			boredom += 0;
-		} else {
-			boredom++;
-		}
-	}
 }

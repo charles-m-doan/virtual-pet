@@ -22,15 +22,16 @@ public class OrganicDog extends OrganicPet {
 	public String getType() {
 		return "Dog";
 	}
-	
+
 	public void tick() {
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
+		decreaseBoredom(boredomRate);
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
-		if(soiled == true) {
+		if (soiled == true) {
 			decreaseHealth(5);
 
-	}
+		}
 	}
 }

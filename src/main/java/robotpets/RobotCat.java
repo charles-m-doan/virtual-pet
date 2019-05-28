@@ -4,29 +4,28 @@ public class RobotCat extends RobotPet {
 
 	public RobotCat(String name) {
 		this.name = name;
-		this.hungerRate = 4;
-		this.thirstRate = 2;
-		this.boredomRate = 2;
-		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = 45;
-		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = 30;
-		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
-
-		this.hunger = getValueBetweenRange(45, maxHungerCapacity);
-		this.thirst = getValueBetweenRange(30, maxThirstCapacity);
-		this.boredom = getValueBetweenRange(100, maxBoredomCapacity);
 	}
 
 	public String getType() {
 		return "RobotCat";
 	}
-
+	
+	@Override
 	public void tick() {
-		decreaseHunger(hungerRate);
-		decreaseThirst(thirstRate);
-		decreaseBoredom(boredomRate);
+		decreaseOil(1);
+		decreaseHealth(1);
+	}
+	
+	@Override
+	public void walk() {
+		decreaseOil(2);
+		decreaseHealth(3);
+	}
+
+	@Override
+	public void play() {
+		decreaseOil(3);
+		decreaseHealth(2);
 	}
 
 }
