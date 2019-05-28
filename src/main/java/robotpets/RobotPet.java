@@ -1,32 +1,29 @@
-package organicpets;
+package robotpets;
 
 import models.VirtualPet;
 
-public abstract class OrganicPet extends VirtualPet {
+public abstract class RobotPet extends VirtualPet {
 
-	protected boolean soiled;
 	protected int hunger;
 	protected int thirst;
 
 	protected int hungerRate;
 	protected int thirstRate;
-	protected int ticksUntilSoiled;
 
 	protected int minHungerCapacity;
 	protected int maxHungerCapacity;
 
 	protected int minThirstCapacity;
 	protected int maxThirstCapacity;
-	
-	public OrganicPet() {
+
+	public RobotPet() {
+
 	}
 
-	public OrganicPet(String name, int hunger, int thirst) {
+	public RobotPet(String name, int hunger, int thirst) {
 		super(name);
 		this.hunger = hunger;
 		this.thirst = thirst;
-		this.soiled = false;
-		this.ticksUntilSoiled = 5;
 	}
 
 	public int getHunger() {
@@ -37,7 +34,13 @@ public abstract class OrganicPet extends VirtualPet {
 		return thirst;
 	}
 
-	public abstract void tick();
+	public void tick() {
+		System.out.println("Test 2");
+		decreaseHunger(hungerRate);
+		decreaseThirst(thirstRate);
+		System.out.println("Test 3");
+
+	}
 
 	protected void decreaseHunger(int amountToDecrease) {
 		this.hunger -= amountToDecrease;
@@ -74,32 +77,6 @@ public abstract class OrganicPet extends VirtualPet {
 			boredom += 0;
 		} else {
 			boredom++;
-		}
-		resetTicksUntilSoiled();
-	}
-
-	public void cleanCage( ) {
-		soiled = false;
-	}
-	
-	public void resetTicksUntilSoiled() {
-		ticksUntilSoiled = getValueBetweenRange(3, 5);
-	}
-
-	public int getTicksUntilSoiled() {
-		return ticksUntilSoiled;
-	}
-
-	public boolean isSoiled() {
-			return soiled;
-		} 
-
-	public void decreaseTicksUntilSoiled() {
-		
-		ticksUntilSoiled-- ;
-		if (ticksUntilSoiled <= 0) {
-			ticksUntilSoiled = 0;
-			soiled = true;
 		}
 	}
 }

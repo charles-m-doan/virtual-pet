@@ -1,8 +1,9 @@
 package robotpets;
-public class RobotDog extends RoboticPet {
+
+public class RobotDog extends RobotPet {
 
 	public RobotDog(String name) {
-		super(name);
+		this.name = name;
 		this.hungerRate = 2;
 		this.thirstRate = 1;
 		this.boredomRate = 1;

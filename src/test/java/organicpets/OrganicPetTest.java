@@ -8,19 +8,39 @@ import organicpets.OrganicDog;
 import organicpets.OrganicPet;
 
 public class OrganicPetTest {
-	
+	OrganicPet underTest = new OrganicDog("Jeff");
+
 	@Test
 	public void petWillSoilBetween2And5Ticks() {
-		OrganicPet underTest = new OrganicDog ("Jeff");
-		System.out.println("Test");
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		assertTrue(underTest.isSoiled());
-		
-		
+
+	}
+
+	@Test
+	public void shouldResetSoilCounterAfterWalking() {
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.walk();
+		assertTrue(underTest.getTicksUntilSoiled() >= 3);
+	}
+
+	@Test
+	public void shouldTestCageIsClean() {
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.cleanCage();
+		assertFalse(underTest.isSoiled());
 	}
 
 }

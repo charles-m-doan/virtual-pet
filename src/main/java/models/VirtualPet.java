@@ -1,7 +1,7 @@
 package models;
 import java.util.Random;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
 	protected String name;
 
@@ -47,11 +47,7 @@ public class VirtualPet {
 		return health;
 	}
 
-	public void tick() {
-		decreaseBoredom(boredomRate);
-		decreaseHealth(healthRate);
-
-	}
+	public abstract void tick(); 
 
 	protected void decreaseBoredom(int amountToDecrease) {
 		this.boredom -= amountToDecrease;

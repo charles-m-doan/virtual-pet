@@ -26,7 +26,8 @@ public class OrganicCat extends OrganicPet {
 	public void tick() {
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
-		decreaseBoredom(boredomRate);
+		decreaseTicksUntilSoiled();
+
 	}
 
 }
