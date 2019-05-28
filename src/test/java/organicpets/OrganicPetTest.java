@@ -11,15 +11,13 @@ public class OrganicPetTest {
 	OrganicPet underTest = new OrganicDog("Jeff");
 
 	@Test
-	public void petWillSoilBetween2And5Ticks() {
+	public void petWillSoilBetween3And5Ticks() {
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
 		assertTrue(underTest.isSoiled());
-		assertTrue(underTest.getTicksUntilSoiled() >= 3);
-
 	}
 
 	@Test

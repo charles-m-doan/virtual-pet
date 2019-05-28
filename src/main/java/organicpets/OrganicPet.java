@@ -5,12 +5,15 @@ import models.VirtualPet;
 public abstract class OrganicPet extends VirtualPet {
 
 	protected boolean soiled;
+	protected int ticksUntilSoiled;
+
 	protected int hunger;
 	protected int thirst;
+	protected int boredom;
 
 	protected int hungerRate;
 	protected int thirstRate;
-	protected int ticksUntilSoiled;
+	protected int boredomRate;
 
 	protected int minHungerCapacity;
 	protected int maxHungerCapacity;
@@ -18,7 +21,11 @@ public abstract class OrganicPet extends VirtualPet {
 	protected int minThirstCapacity;
 	protected int maxThirstCapacity;
 
+	protected int minBoredomCapacity;
+	protected int maxBoredomCapacity;
+
 	public OrganicPet() {
+		this.ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
 	public OrganicPet(String name, int hunger, int thirst) {
@@ -27,6 +34,22 @@ public abstract class OrganicPet extends VirtualPet {
 		this.thirst = thirst;
 		this.soiled = false;
 		this.ticksUntilSoiled = 5;
+
+		this.boredom = 8;
+		this.boredomRate = 1;
+		this.minBoredomCapacity = 0;
+		this.maxBoredomCapacity = 100;
+	}
+
+	public int getBoredom() {
+		return boredom;
+	}
+
+	public void play() {
+		boredom += 50;
+		if (boredom >= 100) {
+			boredom = 100;
+		}
 	}
 
 	public int getHunger() {
@@ -50,6 +73,13 @@ public abstract class OrganicPet extends VirtualPet {
 		this.thirst -= amountToDecrease;
 		if (thirst < 0) {
 			thirst = 0;
+		}
+	}
+
+	protected void decreaseBoredom(int amountToDecrease) {
+		this.boredom -= amountToDecrease;
+		if (boredom < 0) {
+			boredom = 0;
 		}
 	}
 
