@@ -2,6 +2,7 @@ package organicpets;
 
 public class OrganicCat extends OrganicPet {
 
+	
 	public OrganicCat(String name) {
 		this.name = name;
 		this.hungerRate = 2;
