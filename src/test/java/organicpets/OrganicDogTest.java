@@ -18,9 +18,9 @@ public class OrganicDogTest {
 	}
 	
 	@Test
-	public void shouldHaveHungerOf4Less() {
+	public void shouldHaveHungerOf5Less() {
 		OrganicDog testDog = new OrganicDog("Pooch");
-		int expectedHunger = testDog.getHunger() - 4;
+		int expectedHunger = testDog.getHunger() - 10;
 		testDog.tick();
 		testDog.tick();
 		int actualHunger = testDog.getHunger();
@@ -28,10 +28,10 @@ public class OrganicDogTest {
 	}
 	
 	@Test
-	public void hungerShouldBetween15And45() {
+	public void hungerShouldBetween30And60() {
 		OrganicDog testDog = new OrganicDog("Pooch");
 		System.out.println(testDog);
-		assertTrue((testDog.getHunger() >= 15 && testDog.getHunger() <= 45));
+		assertTrue((testDog.getHunger() >= 30 && testDog.getHunger() <= 60));
 	}
 	
 

@@ -3,8 +3,8 @@ package organicpets;
 public class OrganicCat extends OrganicPet {
 
 	public OrganicCat(String name) {
-		this.name = name;
-		this.hungerRate = 2;
+		super(name);
+		this.hungerRate = 3;
 		this.thirstRate = 1;
 		this.boredomRate = 1;
 		this.minHungerCapacity = 0;
@@ -30,7 +30,7 @@ public class OrganicCat extends OrganicPet {
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
 		if(soiled == true) {
-			decreaseHealth(7);
+			decreaseHealth(10);
 		}
 
 	}

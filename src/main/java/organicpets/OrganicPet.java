@@ -24,32 +24,17 @@ public abstract class OrganicPet extends VirtualPet {
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
 
+	public abstract void tick();
+
 	public OrganicPet() {
 		this.ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
-	public OrganicPet(String name, int hunger, int thirst) {
+	public OrganicPet(String name) {
 		super(name);
-		this.hunger = hunger;
-		this.thirst = thirst;
 		this.soiled = false;
 		this.ticksUntilSoiled = 5;
 
-		this.boredom = 8;
-		this.boredomRate = 1;
-		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
-	}
-
-	public int getBoredom() {
-		return boredom;
-	}
-
-	public void play() {
-		boredom += 50;
-		if (boredom >= 100) {
-			boredom = 100;
-		}
 	}
 
 	public int getHunger() {
@@ -60,7 +45,9 @@ public abstract class OrganicPet extends VirtualPet {
 		return thirst;
 	}
 
-	public abstract void tick();
+	public int getBoredom() {
+		return boredom;
+	}
 
 	protected void decreaseHunger(int amountToDecrease) {
 		this.hunger -= amountToDecrease;
@@ -84,7 +71,7 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void feed() {
-		if (hunger >= 10) {
+		if (hunger >= maxHungerCapacity) {
 			hunger += 0;
 		} else {
 			hunger++;
@@ -92,7 +79,7 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void water() {
-		if (thirst >= 10) {
+		if (thirst >= maxThirstCapacity) {
 			thirst += 0;
 		} else {
 			thirst++;
@@ -100,7 +87,7 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void walk() {
-		if (boredom >= 10) {
+		if (boredom >= maxBoredomCapacity) {
 			boredom += 0;
 		} else {
 			boredom++;
@@ -108,6 +95,13 @@ public abstract class OrganicPet extends VirtualPet {
 		resetTicksUntilSoiled();
 	}
 
+	public void play() {
+		boredom += 50;
+		if (boredom >= 100) {
+			boredom = 100;
+		}
+	}
+	
 	public void cleanCage() {
 		soiled = false;
 	}

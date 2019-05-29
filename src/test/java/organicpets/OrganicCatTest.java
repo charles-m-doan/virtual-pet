@@ -18,9 +18,9 @@ public class OrganicCatTest {
 	}
 	
 	@Test
-	public void shouldHaveHungerOf4Less() {
+	public void shouldHaveHungerOf6Less() {
 		OrganicCat testCat = new OrganicCat("Ninja");
-		int expectedHunger = testCat.getHunger() - 4;
+		int expectedHunger = testCat.getHunger() - 6;
 		testCat.tick();
 		testCat.tick();
 		int actualHunger = testCat.getHunger();

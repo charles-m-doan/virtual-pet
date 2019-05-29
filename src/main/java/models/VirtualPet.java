@@ -9,6 +9,10 @@ public abstract class VirtualPet {
 	protected int health;
 	protected int healthRate;
 
+	public abstract void tick();
+	public abstract void play();
+	public abstract void walk();
+	
 	public VirtualPet() {
 	}
 
@@ -41,13 +45,6 @@ public abstract class VirtualPet {
 		health = 100;
 	}
 	
-	public abstract void tick();
-
-	public abstract void play();
-
-	public abstract void walk();
-
-
 	protected static int getValueBetweenRange(int min, int max) {
 		Random random = new Random(System.nanoTime());
 		int randomValue = min + random.nextInt((max - min) + 1);
