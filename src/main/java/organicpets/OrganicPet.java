@@ -23,6 +23,9 @@ public abstract class OrganicPet extends VirtualPet {
 
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
+	protected String favoriteFood;
+	protected int hungerCapacity;
+	protected int currentHunger;
 
 	public OrganicPet() {
 		this.ticksUntilSoiled = getValueBetweenRange(3, 5);
@@ -39,6 +42,8 @@ public abstract class OrganicPet extends VirtualPet {
 		this.boredomRate = 1;
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = 100;
+		this.favoriteFood = "dog food";
+		this.currentHunger = 100;
 	}
 
 	public int getBoredom() {
@@ -83,16 +88,10 @@ public abstract class OrganicPet extends VirtualPet {
 		}
 	}
 
-	public void feed() {
-		if (hunger >= 10) {
-			hunger += 0;
-		} else {
-			hunger++;
-		}
-	}
+	public abstract void feed(String selectedFood);
 
 	public void water() {
-		if (thirst >= 10) {
+		if (thirst >= maxThirstCapacity) {
 			thirst += 0;
 		} else {
 			thirst++;
@@ -100,7 +99,7 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void walk() {
-		if (boredom >= 10) {
+		if (boredom >= maxBoredomCapacity) {
 			boredom += 0;
 		} else {
 			boredom++;
@@ -131,6 +130,13 @@ public abstract class OrganicPet extends VirtualPet {
 			soiled = true;
 			resetTicksUntilSoiled();
 		}
+	}
+
+	public String getFavoriteFood() {
+		return favoriteFood;
+	}
+	public int getCurrentHunger() {
+		return currentHunger;
 	}
 
 }

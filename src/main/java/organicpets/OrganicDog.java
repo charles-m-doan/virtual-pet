@@ -8,15 +8,16 @@ public class OrganicDog extends OrganicPet {
 		this.thirstRate = 5;
 		this.boredomRate = 5;
 		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = 60;
+		this.maxHungerCapacity = getValueBetweenRange(30, 60);
 		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = 70;
+		this.maxThirstCapacity = getValueBetweenRange(20, 70);
 		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
+		this.maxBoredomCapacity = getValueBetweenRange(30, 100);
+		this.favoriteFood = getFavoriteFood();
 
-		this.hunger = getValueBetweenRange(30, maxHungerCapacity);
-		this.thirst = getValueBetweenRange(20, maxThirstCapacity);
-		this.boredom = getValueBetweenRange(30, maxBoredomCapacity);
+		this.hunger = maxHungerCapacity;
+		this.thirst = maxThirstCapacity;
+		this.boredom = maxBoredomCapacity;
 	}
 
 	public String getType() {
@@ -33,5 +34,22 @@ public class OrganicDog extends OrganicPet {
 			decreaseHealth(5);
 
 		}
+	}
+
+	 public String getFavoriteFood() {
+		String[] foods;
+		foods = new String[] { "dry dog food", "wet dog food", "chicken", "beef", "treat" };
+		favoriteFood = foods[getValueBetweenRange(0, 4)];
+		return favoriteFood;
+	}
+	
+
+	public void feed(String selectedFood) {
+		if (selectedFood == favoriteFood) {
+			hunger += 40;
+		} else hunger += 30;
+		if (hunger >= maxHungerCapacity) {
+			hunger = maxHungerCapacity;
+			}
 	}
 }
