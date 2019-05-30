@@ -46,8 +46,8 @@ public class OrganicDog extends OrganicPet {
 
 	public void feed(String selectedFood) {
 		if (selectedFood == favoriteFood) {
-			hunger += 40;
-		} else hunger += 30;
+			hunger += 50;
+		} else hunger += 40;
 		if (hunger >= maxHungerCapacity) {
 			hunger = maxHungerCapacity;
 			}
