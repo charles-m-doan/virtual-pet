@@ -14,6 +14,7 @@ public class OrganicHorse extends OrganicPet {
 			this.maxThirstCapacity = getValueBetweenRange(45, 80);
 			this.minBoredomCapacity = 0;
 			this.maxBoredomCapacity = getValueBetweenRange(50, 75);
+			this.favoriteFood = getFavoriteFood();
 
 			this.hunger = maxHungerCapacity;
 			this.thirst = maxThirstCapacity;
