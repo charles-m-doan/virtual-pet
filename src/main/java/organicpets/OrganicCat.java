@@ -30,25 +30,26 @@ public class OrganicCat extends OrganicPet {
 		decreaseBoredom(boredomRate);
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
-		if(soiled == true) {
+		if (soiled == true) {
 			decreaseHealth(7);
 		}
 
 	}
+
 	public String getFavoriteFood() {
 		String[] foods;
 		foods = new String[] { "dry cat food", "canned cat food", "chicken", "tuna", "treat" };
 		favoriteFood = foods[getValueBetweenRange(0, 4)];
 		return favoriteFood;
 	}
-	
 
 	public void feed(String selectedFood) {
-		if (selectedFood == favoriteFood) {
+		if (selectedFood.equals(favoriteFood)) {
 			hunger += 30;
-		} else hunger += 20;
+		} else
+			hunger += 20;
 		if (hunger >= maxHungerCapacity) {
 			hunger = maxHungerCapacity;
-			}
+		}
 	}
 }

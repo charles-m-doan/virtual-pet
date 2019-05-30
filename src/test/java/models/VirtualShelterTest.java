@@ -1,20 +1,17 @@
 package models;
-import static org.junit.Assert.*;
 
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import models.VirtualPet;
-import models.VirtualShelter;
 import organicpets.OrganicCat;
 import organicpets.OrganicDog;
-import organicpets.OrganicHorse;
 
 public class VirtualShelterTest {
 
 	public VirtualShelterTest() {
-		
+
 	}
 
 	@Test
@@ -66,27 +63,26 @@ public class VirtualShelterTest {
 		VirtualShelter testShelter = new VirtualShelter();
 		VirtualPet testPet1 = new OrganicDog("other dog");
 		VirtualPet testPet2 = new OrganicCat("Mittens");
-		VirtualPet testPet3 = new OrganicHorse("Ed");
+		VirtualPet testPet3 = new OrganicCat("Ninja");
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);
-
 		System.out.println(testShelter);
 	}
-	
+
 	@Test
 	public void playerCanPlayWithTwoPets() {
 		VirtualShelter testShelter = new VirtualShelter();
 		VirtualPet testPet1 = new OrganicDog("other dog");
 		VirtualPet testPet2 = new OrganicCat("Mittens");
-		VirtualPet testPet3 = new OrganicHorse("Ed");
+		VirtualPet testPet3 = new OrganicCat("Ninja");
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);
-		
+
 		System.out.println(testShelter);
-		testShelter.playWithPets(new String[] {"other dog", "Mittens", "Ed"});
+		testShelter.playWithPets(new String[] { "other dog", "Mittens", "Ed" });
 		System.out.println(testShelter);
-		
+
 	}
 }
