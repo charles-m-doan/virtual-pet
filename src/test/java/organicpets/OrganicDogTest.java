@@ -27,6 +27,18 @@ public class OrganicDogTest {
 	 * OrganicDog("Pooch"); System.out.println(testDog);
 	 * assertTrue((testDog.getHunger() >= 15 && testDog.getHunger() <= 45)); }
 	 */
+	
+	
+	
+	@Test
+	public void foodShouldBeAmongPreferredFoods() {
+		String favFood = testDog.favoriteFood;
+		System.out.println("Fav Food: " + favFood);
+		System.out.println("Preferred Foods: " + testDog.PREFERRED_FOODS);
+		assertTrue(testDog.foodIsAmongPreferredFoods(favFood));
+		
+	}
+	
 
 	@Test
 	public void shouldHaveFavoriteFood() {

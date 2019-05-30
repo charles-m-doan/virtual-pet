@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import applications.StatusTableFactory;
+import organicpets.OrganicCat;
+import organicpets.OrganicDog;
 import organicpets.OrganicPet;
 import robotpets.RobotPet;
 
@@ -37,6 +39,11 @@ public class VirtualShelter {
 		}
 	}
 
+	public boolean mapContainsPet(String petName) {
+		boolean hasPet = petMap.containsKey(petName);
+		return hasPet;
+	}
+
 	// Pet Manipulation Methods
 	// ======================================================
 
@@ -44,115 +51,128 @@ public class VirtualShelter {
 
 	// Applies to VirtualPet and all descendants
 
-	public void restorePet(String petName) {
+	public void restorePet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			pet.restoreHealth();
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
-	public void playWithPet(String petName) {
+	public void playWithPet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			pet.play();
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
-	public void walkPet(String petName) {
+	public void walkPet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			pet.walk();
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
 	// Applies only to OrganicPet ------------------------------
 
-	public void feedPet(String petName, String selectedFood) {
+	public void feedPet(String petName, String selectedFood) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			if (pet instanceof OrganicPet) {
 				((OrganicPet) pet).feed(selectedFood);
 			} else {
-				System.out.println("You can't feed " + selectedFood + " to " + petName + " because it is not an OrganicPet!");
+				throw new Exception(
+						"You can't feed " + selectedFood + " to " + petName + " because it is not an OrganicPet!");
 			}
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
-	public void waterPet(String petName) {
+	public void waterPet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			if (pet instanceof OrganicPet) {
 				((OrganicPet) pet).water();
 			} else {
-				System.out.println("You can't water " + petName + " because it is not an OrganicPet!");
+				throw new Exception("You can't water " + petName + " because it is not an OrganicPet!");
 			}
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
-	public void cleanCageOfPet(String petName) {
+	public void cleanCageOfPet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			if (pet instanceof OrganicPet) {
 				((OrganicPet) pet).cleanCage();
 			} else {
-				System.out.println(petName + "'s cage doesn't need cleaning because it is not an OrganicPet!");
+				throw new Exception(petName + "'s cage doesn't need cleaning because it is not an OrganicPet!");
 			}
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
 	// Applies only to RobotPet ------------------------------------
 
-	public void fillOilOfPet(String petName) {
+	public void fillOilOfPet(String petName) throws Exception {
 		VirtualPet pet = petMap.get(petName);
 		if (pet != null) {
 			if (pet instanceof RobotPet) {
 				((RobotPet) pet).fillOil();
 			} else {
-				System.out.println(petName + "doesn't need oil because it is not a RobotPet!");
+				throw new Exception(petName + "doesn't need oil because it is not a RobotPet!");
 			}
 		} else {
-			System.out.println("No pet named " + petName + " found.");
+			throw new Exception("No pet named " + petName + " found.");
 		}
 	}
 
 	// Multiple Pet Manipulation Methods ----------------------
 
-	public void playWithPets(ArrayList<String> petNames) {
+	public void playWithPets(ArrayList<String> petNames) throws Exception {
 		for (String petName : petNames) {
 			playWithPet(petName);
 		}
 	}
 
-	public void vetVisitPets(ArrayList<String> petNames) {
+	public void feedPets(ArrayList<String> petNames, String selectedFood) throws Exception {
 		for (String petName : petNames) {
+			feedPet(petName, selectedFood);
+		}
+	}
+
+	public void waterPets(ArrayList<String> petNameList) throws Exception {
+		for (String petName : petNameList) {
+			waterPet(petName);
+		}
+	}
+
+	public void vetVisitPets(ArrayList<String> petNameList) throws Exception {
+		for (String petName : petNameList) {
 			VirtualPet pet = petMap.get(petName);
 			if (pet != null && pet instanceof OrganicPet) {
 				restorePet(petName);
 			} else {
-				System.out.println(petName + " doesn't need to visit the vet because it is not an OrganicPet!");
+				throw new Exception(petName + " doesn't need to visit the vet because it is not an OrganicPet!");
 			}
 		}
 	}
 
-	public void maintainPets(ArrayList<String> petNames) {
+	public void maintainPets(ArrayList<String> petNames) throws Exception {
 		for (String petName : petNames) {
 			VirtualPet pet = petMap.get(petName);
 			if (pet != null && pet instanceof RobotPet) {
 				restorePet(petName);
 			} else {
-				System.out.println(petName + " can't be repaired because it is not a RobotPet!");
+				throw new Exception(petName + " can't be repaired because it is not a RobotPet!");
 			}
 		}
 	}
@@ -229,8 +249,30 @@ public class VirtualShelter {
 	}
 
 	public void printPetStatusTables() {
-		System.out.println(StatusTableFactory.generateStatusTableForRobotPets(this));
-		System.out.println(StatusTableFactory.generateStatusTableForOrganicPets(this));
+		System.out.println(StatusTableFactory.generateStatusTableForVirtualPets(this));
+		//System.out.println(StatusTableFactory.generateStatusTableForRobotPets(this));
+		//System.out.println(StatusTableFactory.generateStatusTableForOrganicPets(this));
+	}
+	
+	public String getFoodOptions() {
+		ArrayList<String> foodList = new ArrayList<String>();
+		String[] catFoods = OrganicCat.getPreferredFoods();
+		String[] dogFoods = OrganicDog.getPreferredFoods();
+		for(String food : catFoods) {
+			if(!foodList.contains(food)) {
+				foodList.add(food);
+			}
+		}
+		for(String food : dogFoods) {
+			if(!foodList.contains(food)) {
+				foodList.add(food);
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		for(String food : foodList) {
+			sb.append(food + ", ");
+		}
+		return sb.toString();
 	}
 
 }

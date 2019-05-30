@@ -2,6 +2,9 @@ package organicpets;
 
 public class OrganicCat extends OrganicPet {
 
+	protected static final String[] PREFERRED_FOODS = { "dry food", "canned food", "chicken", "tuna", "cat treat",
+			"fish" };
+
 	public OrganicCat(String name) {
 		super(name);
 		this.hungerRate = 3;
@@ -13,10 +16,10 @@ public class OrganicCat extends OrganicPet {
 		this.maxThirstCapacity = getValueBetweenRange(10, 30);
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = getValueBetweenRange(30, 100);
-		this.favoriteFood = determineFavoriteFood();
 		this.hunger = maxHungerCapacity;
 		this.thirst = maxThirstCapacity;
 		this.boredom = maxBoredomCapacity;
+		this.favoriteFood = determineFavoriteFood();
 	}
 
 	public String getType() {
@@ -35,18 +38,36 @@ public class OrganicCat extends OrganicPet {
 
 	}
 
+	protected boolean foodIsAmongPreferredFoods(String selectedFood) {
+		for (int i = 0; i < PREFERRED_FOODS.length; i++) {
+			if (selectedFood.equals(PREFERRED_FOODS[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void feed(String selectedFood) {
-		if (selectedFood.equals(favoriteFood)) {
-			hunger += 30;
-		} else
-			hunger += 20;
+		if (foodIsAmongPreferredFoods(selectedFood)) {
+			if (selectedFood.equals(favoriteFood)) {
+				hunger += 30;
+				System.out.println(this.name + " purrs <3");
+			} else {
+				hunger += 20;
+			}
+		} else {
+			System.out.println(this.name + " doesn't like " + selectedFood);
+		}
 		if (hunger >= maxHungerCapacity) {
 			hunger = maxHungerCapacity;
 		}
 	}
 
-	private static String determineFavoriteFood() {
-		String[] foods = { "dry cat food", "canned cat food", "chicken", "tuna", "treat" };
-		return foods[getValueBetweenRange(0, 4)];
+	public static String[] getPreferredFoods() {
+		return PREFERRED_FOODS;
+	}
+
+	protected static String determineFavoriteFood() {
+		return PREFERRED_FOODS[getValueBetweenRange(0, PREFERRED_FOODS.length - 1)];
 	}
 }

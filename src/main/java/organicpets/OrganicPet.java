@@ -23,8 +23,9 @@ public abstract class OrganicPet extends VirtualPet {
 
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
-	
+
 	protected String favoriteFood;
+	protected static final String[] PREFERRED_FOODS = { "Pet Food" };
 
 	public abstract void tick();
 
@@ -32,6 +33,7 @@ public abstract class OrganicPet extends VirtualPet {
 		super(name);
 		this.soiled = false;
 		this.ticksUntilSoiled = 5;
+		this.favoriteFood = determineFavoriteFood();
 	}
 
 	public abstract void feed(String selectedFood);
@@ -55,7 +57,7 @@ public abstract class OrganicPet extends VirtualPet {
 	public boolean isSoiled() {
 		return soiled;
 	}
-	
+
 	public int getMaxHungerCapacity() {
 		return maxHungerCapacity;
 	}
@@ -88,7 +90,7 @@ public abstract class OrganicPet extends VirtualPet {
 			resetTicksUntilSoiled();
 		}
 	}
-	
+
 	public void play() {
 		boredom += 50;
 		if (boredom >= 100) {
@@ -125,23 +127,32 @@ public abstract class OrganicPet extends VirtualPet {
 		return favoriteFood;
 	}
 
+	public static String[] getPreferredFoods() {
+		return PREFERRED_FOODS;
+	}
+
+	protected static String determineFavoriteFood() {
+		return PREFERRED_FOODS[getValueBetweenRange(0, PREFERRED_FOODS.length - 1)];
+	}
+
+	protected boolean foodIsAmongPreferredFoods(String selectedFood) {
+		for (int i = 0; i < PREFERRED_FOODS.length; i++) {
+			if (selectedFood.equals(PREFERRED_FOODS[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public String[] getStats() {
 		String cageStatus = "clean";
 		if (soiled) {
 			cageStatus = "dirty";
 		}
-		String[] petStats = { name, getType(), "" + health, "" + hunger, "" + thirst, "" + boredom, getFavoriteFood(), cageStatus };
+		String[] petStats = { name, getType(), "" + health + "/100", "", "" + hunger + "/" + maxHungerCapacity,
+				"" + thirst + "/" + maxThirstCapacity, "" + boredom + "/" + maxBoredomCapacity, getFavoriteFood(),
+				cageStatus };
 		return petStats;
 	}
-
-	public static String[] getFieldLabels() {
-		String[] fieldLabels = { "Name", "Type", "Health", "Hunger", "Thirst", "Boredom", "Fav Food", "Cage Status" };
-		return fieldLabels;
-	}
-
-	private static String determineFavoriteFood() {
-		return "Generic Food";
-	}
-
 }

@@ -61,12 +61,12 @@ public abstract class VirtualPet {
 	}
 
 	public String[] getStats() {
-		String[] petStats = { name, getType(), "" + health };
+		String[] petStats = { name, getType(), "" + health, "", "", "", "", "", "" };
 		return petStats;
 	}
 
 	public static String[] getFieldLabels() {
-		String[] fieldLabels = { "Name", "Type", "Health" };
+		String[] fieldLabels = { "Name", "Type", "Health", "Oil", "Hunger", "Thirst", "Boredom", "Fav Food", "Cage Status" };
 		return fieldLabels;
 	}
 }

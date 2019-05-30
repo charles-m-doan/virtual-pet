@@ -34,6 +34,8 @@ public class OrganicCatTest {
 
 		assertEquals(expectedHunger, actualHunger);
 	}
+	
+	
 
 	@Test
 	public void shouldHaveFavoriteFood() {

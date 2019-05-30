@@ -37,13 +37,10 @@ public abstract class RobotPet extends VirtualPet {
 		this.oil = 100;
 	}
 
+	@Override
 	public String[] getStats() {
-		String[] petStats = { name, getType(), "" + health, "" + oil };
+		String[] petStats = { name, getType(), "" + health + "/100", "" + oil + "/100", "", "", "", "", "" };
 		return petStats;
 	}
 
-	public static String[] getFieldLabels() {
-		String[] fieldLabels = { "Name", "Type", "Health", "Oil" };
-		return fieldLabels;
-	}
 }

@@ -2,6 +2,7 @@ package applications;
 
 import java.util.ArrayList;
 
+import models.VirtualPet;
 import models.VirtualShelter;
 import organicpets.OrganicPet;
 import robotpets.RobotPet;
@@ -19,6 +20,14 @@ public class StatusTableFactory {
 
 	private StatusTableFactory() {
 	}
+	
+	public static String generateStatusTableForVirtualPets(VirtualShelter virtualShelter) {
+		String[] columnLabels = VirtualPet.getFieldLabels();
+		ArrayList<String[]> petStatsList = virtualShelter.getPetStatsList();
+		String table = createTable(columnLabels, petStatsList);
+		return table;
+	}
+	
 
 	public static String generateStatusTableForOrganicPets(VirtualShelter virtualShelter) {
 		String[] columnLabels = OrganicPet.getFieldLabels();
