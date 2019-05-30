@@ -41,6 +41,57 @@ public class OrganicPetTest {
 		underTest.cleanCage();
 		assertFalse(underTest.isSoiled());
 	}
+/*	@Test
+	public void waterShouldFillByHalf() {
+		int thirstExpected = underTest.getThirst()/2; 
+		System.out.println(underTest.getThirst());
+		underTest.tick();	
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();	
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		System.out.println(underTest.getThirst());
+		underTest.water();
+		System.out.println(underTest.getThirst());
+		assertEquals(thirstExpected, underTest.getThirst());
+	}
+	*/
+	@Test
+	public void bordeomShouldIncrease() {
+		System.out.println(underTest.getBoredom());
+		underTest.tick();	
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();	
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		underTest.tick();
+		int expectedBoredom = underTest.getBoredom();
+		System.out.println(underTest.getBoredom());
+		underTest.walk();
+		System.out.println(underTest.getBoredom());
+		assertTrue(underTest.getBoredom() >= expectedBoredom);
+	}
 
 //	@Test
 //	public void shouldHaveFavoriteFood() {

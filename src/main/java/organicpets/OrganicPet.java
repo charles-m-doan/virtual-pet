@@ -92,9 +92,9 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void play() {
-		boredom += 50;
-		if (boredom >= 100) {
-			boredom = 100;
+		boredom += maxBoredomCapacity/4*3;
+		if (boredom >= maxBoredomCapacity) {
+			boredom = maxBoredomCapacity;
 		}
 	}
 
@@ -102,7 +102,7 @@ public abstract class OrganicPet extends VirtualPet {
 		if (thirst >= maxThirstCapacity) {
 			thirst += 0;
 		} else {
-			thirst++;
+			thirst += maxThirstCapacity/2;
 		}
 	}
 
@@ -110,7 +110,7 @@ public abstract class OrganicPet extends VirtualPet {
 		if (boredom >= maxBoredomCapacity) {
 			boredom += 0;
 		} else {
-			boredom++;
+			boredom += maxBoredomCapacity/4;
 		}
 		resetTicksUntilSoiled();
 	}
