@@ -13,7 +13,6 @@ public class OrganicCat extends OrganicPet {
 		this.maxThirstCapacity = 30;
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = 100;
-
 		this.hunger = getValueBetweenRange(15, maxHungerCapacity);
 		this.thirst = getValueBetweenRange(10, maxThirstCapacity);
 		this.boredom = getValueBetweenRange(50, maxBoredomCapacity);

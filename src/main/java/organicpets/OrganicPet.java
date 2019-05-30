@@ -41,16 +41,7 @@ public abstract class OrganicPet extends VirtualPet {
 		this.maxBoredomCapacity = 100;
 	}
 
-	public int getBoredom() {
-		return boredom;
-	}
-
-	public void play() {
-		boredom += 50;
-		if (boredom >= 100) {
-			boredom = 100;
-		}
-	}
+	public abstract void tick();
 
 	public int getHunger() {
 		return hunger;
@@ -60,7 +51,17 @@ public abstract class OrganicPet extends VirtualPet {
 		return thirst;
 	}
 
-	public abstract void tick();
+	public int getBoredom() {
+		return boredom;
+	}
+
+	public int getTicksUntilSoiled() {
+		return ticksUntilSoiled;
+	}
+
+	public boolean isSoiled() {
+		return soiled;
+	}
 
 	protected void decreaseHunger(int amountToDecrease) {
 		this.hunger -= amountToDecrease;
@@ -83,8 +84,17 @@ public abstract class OrganicPet extends VirtualPet {
 		}
 	}
 
+	public void decreaseTicksUntilSoiled() {
+
+		ticksUntilSoiled--;
+		if (ticksUntilSoiled <= 0) {
+			soiled = true;
+			resetTicksUntilSoiled();
+		}
+	}
+
 	public void feed() {
-		if (hunger >= 10) {
+		if (hunger >= maxHungerCapacity) {
 			hunger += 0;
 		} else {
 			hunger++;
@@ -92,7 +102,7 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void water() {
-		if (thirst >= 10) {
+		if (thirst >= maxThirstCapacity) {
 			thirst += 0;
 		} else {
 			thirst++;
@@ -100,12 +110,19 @@ public abstract class OrganicPet extends VirtualPet {
 	}
 
 	public void walk() {
-		if (boredom >= 10) {
+		if (boredom >= maxBoredomCapacity) {
 			boredom += 0;
 		} else {
 			boredom++;
 		}
 		resetTicksUntilSoiled();
+	}
+
+	public void play() {
+		boredom += 50;
+		if (boredom >= maxBoredomCapacity) {
+			boredom = maxBoredomCapacity;
+		}
 	}
 
 	public void cleanCage() {
@@ -116,21 +133,20 @@ public abstract class OrganicPet extends VirtualPet {
 		ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
-	public int getTicksUntilSoiled() {
-		return ticksUntilSoiled;
-	}
-
-	public boolean isSoiled() {
-		return soiled;
-	}
-
-	public void decreaseTicksUntilSoiled() {
-
-		ticksUntilSoiled--;
-		if (ticksUntilSoiled <= 0) {
-			soiled = true;
-			resetTicksUntilSoiled();
+	@Override
+	public String[] getStats() {
+		String cageStatus = "clean";
+		if (soiled) {
+			cageStatus = "dirty";
 		}
+		String[] petStats = { name, getType(), "" + health, "" + hunger, "" + thirst, "" + boredom, "Spaghetti",
+				cageStatus };
+		return petStats;
+	}
+
+	public static String[] getFieldLabels() {
+		String[] fieldLabels = { "Name", "Type", "Health", "Hunger", "Thirst", "Boredom", "Fav Food", "Cage Status" };
+		return fieldLabels;
 	}
 
 }

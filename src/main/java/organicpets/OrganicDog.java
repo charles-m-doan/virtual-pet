@@ -31,7 +31,6 @@ public class OrganicDog extends OrganicPet {
 		decreaseHealth(healthRate);
 		if (soiled == true) {
 			decreaseHealth(5);
-
 		}
 	}
 }

@@ -7,20 +7,20 @@ import org.junit.Test;
 import organicpets.OrganicDog;
 
 public class OrganicDogTest {
+	
+	OrganicDog testDog = new OrganicDog("Pooch");
 
 	public OrganicDogTest() {
 	}
 	
 	@Test
 	public void shouldHaveTypeDog() {
-		OrganicDog testDog = new OrganicDog("Pooch");
 		assertEquals("Dog", testDog.getType());
 	}
 	
 	@Test
-	public void shouldHaveHungerOf4Less() {
-		OrganicDog testDog = new OrganicDog("Pooch");
-		int expectedHunger = testDog.getHunger() - 4;
+	public void shouldHaveHungerOf10Less() {
+		int expectedHunger = testDog.getHunger() - 10;
 		testDog.tick();
 		testDog.tick();
 		int actualHunger = testDog.getHunger();
@@ -28,10 +28,8 @@ public class OrganicDogTest {
 	}
 	
 	@Test
-	public void hungerShouldBetween15And45() {
-		OrganicDog testDog = new OrganicDog("Pooch");
-		System.out.println(testDog);
-		assertTrue((testDog.getHunger() >= 15 && testDog.getHunger() <= 45));
+	public void hungerShouldBetween30And60() {
+		assertTrue((testDog.getHunger() >= 30 && testDog.getHunger() <= 60));
 	}
 	
 
