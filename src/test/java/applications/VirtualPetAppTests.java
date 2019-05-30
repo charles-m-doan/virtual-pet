@@ -1,3 +1,4 @@
+package applications;
 import org.junit.Test;
 
 import models.VirtualShelter;
