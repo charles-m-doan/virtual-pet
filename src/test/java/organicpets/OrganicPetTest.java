@@ -42,4 +42,11 @@ public class OrganicPetTest {
 		assertFalse(underTest.isSoiled());
 	}
 
+//	@Test
+//	public void shouldHaveFavoriteFood() {
+//		assertEquals("dry dog food", underTest.getFavoriteFood());
+		
+
+//	}
+
 }

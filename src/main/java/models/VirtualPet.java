@@ -2,6 +2,7 @@ package models;
 
 import java.util.Random;
 
+
 public abstract class VirtualPet {
 
 	protected String name;

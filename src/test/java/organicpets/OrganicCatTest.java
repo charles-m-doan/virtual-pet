@@ -10,7 +10,7 @@ public class OrganicCatTest {
 
 	public OrganicCatTest() {
 	}
-	
+	/*
 	@Test
 	public void shouldHaveTypeCat() {
 		OrganicCat testCat = new OrganicCat("Ninja");
@@ -33,6 +33,39 @@ public class OrganicCatTest {
 		System.out.println(testCat);
 		assertTrue((testCat.getHunger() >= 15 && testCat.getHunger() <= 45));
 	}
-	
-
+	*/
+	@Test
+	public void favoriteFoodShouldAdd40Hunger() {
+		OrganicCat testCat = new OrganicCat("Pooch");
+		int expectedHunger = testCat.getHunger();
+		System.out.println(testCat.getHunger());
+		testCat.tick();
+		testCat.tick();
+		System.out.println(testCat.getHunger());
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		testCat.tick();
+		System.out.println(testCat.getHunger());
+		testCat.feed("tuna");
+		System.out.println(testCat.getHunger());
+		assertEquals(testCat.getHunger(), expectedHunger);
+		
+	}
+		@Test
+		public void shouldHaveFavoriteFood() {
+			OrganicCat testCat = new OrganicCat("Pooch");
+			System.out.println(testCat.getFavoriteFood());
+	}
 }
+
+
+
