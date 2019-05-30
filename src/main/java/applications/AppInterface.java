@@ -12,7 +12,6 @@ public class AppInterface {
 	private static final String WELCOME_MESSAGE = "Welcome to the Virtual Pet App!\n";
 	private static final String EXIT_MESSAGE = "\n\n\nThanks for playing. Bye!";
 	private static final String NO_PETS_IN_SHELTER = "There are currently no pets in the shelter.";
-	private static final String NO_WORKING_PET = "You aren't currently working with any pet.";
 
 	// MENU RELATED
 	private static final String MENU_FRAME = "---------------------------------------";
@@ -21,7 +20,7 @@ public class AppInterface {
 	private static final String DEFAULT_MENU_PROMPT = "Command: ";
 
 	// MAIN MENU
-	private static final String[] MAIN_MENU_OPTIONS = { "Create a virtual pet.", "Play wi1th current pet.",
+	private static final String[] MAIN_MENU_OPTIONS = { "Create a virtual pet.", "Play with current pet.",
 			"Feed current pet.", "Water current pet.", "Place current pet in shelter.", "Take pet from shelter.",
 			"See status of pets in shelter.", "Take pet to Vet.", "Quit" };
 	private static final String MAIN_MENU_DISPLAY = assembleMenuDisplay(MAIN_MENU_OPTIONS);

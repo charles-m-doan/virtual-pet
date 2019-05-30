@@ -23,36 +23,18 @@ public abstract class OrganicPet extends VirtualPet {
 
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
+	
 	protected String favoriteFood;
-	protected int hungerCapacity;
-	protected int currentHunger;
 
 	public abstract void tick();
-
-	public OrganicPet() {
-		this.ticksUntilSoiled = getValueBetweenRange(3, 5);
-	}
 
 	public OrganicPet(String name) {
 		super(name);
 		this.soiled = false;
 		this.ticksUntilSoiled = 5;
-		this.boredom = 8;
-		this.boredomRate = 1;
-		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
-		this.favoriteFood = "dog food";
-		this.currentHunger = 100;
 	}
 
 	public abstract void feed(String selectedFood);
-
-	public void play() {
-		boredom += 50;
-		if (boredom >= 100) {
-			boredom = 100;
-		}
-	}
 
 	public int getBoredom() {
 		return boredom;
@@ -72,6 +54,10 @@ public abstract class OrganicPet extends VirtualPet {
 
 	public boolean isSoiled() {
 		return soiled;
+	}
+	
+	public int getMaxHungerCapacity() {
+		return maxHungerCapacity;
 	}
 
 	protected void decreaseHunger(int amountToDecrease) {
@@ -102,6 +88,13 @@ public abstract class OrganicPet extends VirtualPet {
 			resetTicksUntilSoiled();
 		}
 	}
+	
+	public void play() {
+		boredom += 50;
+		if (boredom >= 100) {
+			boredom = 100;
+		}
+	}
 
 	public void water() {
 		if (thirst >= maxThirstCapacity) {
@@ -128,14 +121,17 @@ public abstract class OrganicPet extends VirtualPet {
 		ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
+	public String getFavoriteFood() {
+		return favoriteFood;
+	}
+
 	@Override
 	public String[] getStats() {
 		String cageStatus = "clean";
 		if (soiled) {
 			cageStatus = "dirty";
 		}
-		String[] petStats = { name, getType(), "" + health, "" + hunger, "" + thirst, "" + boredom, "Spaghetti",
-				cageStatus };
+		String[] petStats = { name, getType(), "" + health, "" + hunger, "" + thirst, "" + boredom, getFavoriteFood(), cageStatus };
 		return petStats;
 	}
 
@@ -144,12 +140,8 @@ public abstract class OrganicPet extends VirtualPet {
 		return fieldLabels;
 	}
 
-	public String getFavoriteFood() {
-		return favoriteFood;
-	}
-
-	public int getCurrentHunger() {
-		return currentHunger;
+	private static String determineFavoriteFood() {
+		return "Generic Food";
 	}
 
 }

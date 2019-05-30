@@ -21,10 +21,6 @@ public abstract class RobotPet extends VirtualPet {
 		this.outOfOil = false;
 	}
 
-	public void performMaitenance() {
-		this.health = 100;
-	}
-
 	public void decreaseOil(int amountToDecrease) {
 		oil -= amountToDecrease;
 	}
@@ -41,9 +37,13 @@ public abstract class RobotPet extends VirtualPet {
 		this.oil = 100;
 	}
 
-	@Override
 	public String[] getStats() {
-		String[] petStats = { name, "" + health };
+		String[] petStats = { name, getType(), "" + health, "" + oil };
 		return petStats;
+	}
+
+	public static String[] getFieldLabels() {
+		String[] fieldLabels = { "Name", "Type", "Health", "Oil" };
+		return fieldLabels;
 	}
 }

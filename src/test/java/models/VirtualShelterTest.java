@@ -3,6 +3,8 @@ package models;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import organicpets.OrganicCat;
@@ -29,25 +31,6 @@ public class VirtualShelterTest {
 		testShelter.addPet(new OrganicDog("boy"));
 		int actualNumberOfPets = testShelter.getNumberOfPets();
 		assertEquals(numberOfPetsAfter, actualNumberOfPets);
-
-	}
-
-	@Test
-	public void canTakePetFromVirtualShelter() {
-		int numberOfPetsAfter = 0;
-		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new OrganicDog("Jeff"));
-		testShelter.takePet("Jeff");
-		int actualNumberOfPets = testShelter.getNumberOfPets();
-		assertEquals(numberOfPetsAfter, actualNumberOfPets);
-	}
-
-	@Test
-	public void canReturnPetToPlayer() {
-		VirtualShelter testShelter = new VirtualShelter();
-		testShelter.addPet(new OrganicDog("Jeff"));
-		VirtualPet removedPet = testShelter.takePet("Jeff");
-		assertTrue(removedPet != null);
 
 	}
 
@@ -79,9 +62,15 @@ public class VirtualShelterTest {
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);
-		System.out.println(testShelter);
-		testShelter.playWithPets(new String[] { "other dog", "Mittens", "Ed" });
-		System.out.println(testShelter);
-
+		
+		testShelter.printPetStatusTables();
+		
+		ArrayList<String> petNames = new ArrayList<String>();
+		petNames.add("other dog");
+		petNames.add("Mittens");
+		testShelter.playWithPets(petNames);
+		
+		testShelter.printPetStatusTables();
+		assertTrue(false);
 	}
 }

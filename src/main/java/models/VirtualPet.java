@@ -46,12 +46,12 @@ public abstract class VirtualPet {
 		}
 	}
 
-	public void vetVisit() {
+	public void restoreHealth() {
 		health = 100;
 	}
 
 	public String toString() {
-		return name + " | " + this.getType() + " | " + this.health;
+		return name + " : " + this.getType();
 	}
 
 	protected static int getValueBetweenRange(int min, int max) {

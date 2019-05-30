@@ -2,29 +2,52 @@ package applications;
 
 import java.util.ArrayList;
 
-public class TextTableFactory {
+import models.VirtualShelter;
+import organicpets.OrganicPet;
+import robotpets.RobotPet;
 
+public class StatusTableFactory {
+
+	public static final int MAX_COLUMN_WIDTH = 14;
 	public static final String COLUMN_SEPARATOR = "|";
 	public static final String ROW_SEPARATOR = "-";
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 	public static final String[] ORGANIC_PET_TABLE_COL_HEADERS = { "Name", "Health" };
-
-	public static final int MAX_COLUMN_WIDTH = 14;
 	public static final String COLUMN_FORMAT = "%-" + MAX_COLUMN_WIDTH + "s";
 	public static final String COLUMN_SEP_FORMAT = "%-2s";
 	public static final String ROW_END_FORMAT = "%2s";
 
-	private TextTableFactory() {
+	private StatusTableFactory() {
+	}
+
+	public static String generateStatusTableForOrganicPets(VirtualShelter virtualShelter) {
+		String[] columnLabels = OrganicPet.getFieldLabels();
+		ArrayList<String[]> petStatsList = virtualShelter.getOrganicPetStatsList();
+		String table = createTable(columnLabels, petStatsList);
+		return table;
+	}
+
+	public static String generateStatusTableForRobotPets(VirtualShelter virtualShelter) {
+		String[] columnLabels = RobotPet.getFieldLabels();
+		ArrayList<String[]> petStatsList = virtualShelter.getRobotPetStatsList();
+		String table = createTable(columnLabels, petStatsList);
+		return table;
 	}
 
 	public static String createTable(String[] columnLabels, ArrayList<String[]> data) {
+		if (data.size() <= 0) {
+			return "No Pets to Display";
+		}
 		String[] headerAndFooter = createTableHeaderAndFooter(columnLabels);
 		StringBuilder tableBuilder = new StringBuilder();
 		tableBuilder.append(headerAndFooter[0]);
 
-		for (String[] rowValues : data) {
+		for (int i = 0; i < data.size(); i++) {
+			String[] rowValues = data.get(i);
 			tableBuilder.append(createTableRow(rowValues));
-			tableBuilder.append(LINE_SEPARATOR);
+			if (i < data.size() - 1) {
+				tableBuilder.append(LINE_SEPARATOR);
+			}
 		}
 
 		tableBuilder.append(LINE_SEPARATOR);

@@ -7,7 +7,7 @@ public class RobotDog extends RobotPet {
 	}
 
 	public String getType() {
-		return "RobotDog";
+		return "Robo Dog";
 	}
 
 	@Override

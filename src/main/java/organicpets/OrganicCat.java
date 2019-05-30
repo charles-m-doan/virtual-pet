@@ -13,8 +13,7 @@ public class OrganicCat extends OrganicPet {
 		this.maxThirstCapacity = getValueBetweenRange(10, 30);
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = getValueBetweenRange(30, 100);
-		this.favoriteFood = getFavoriteFood();
-
+		this.favoriteFood = determineFavoriteFood();
 		this.hunger = maxHungerCapacity;
 		this.thirst = maxThirstCapacity;
 		this.boredom = maxBoredomCapacity;
@@ -36,13 +35,6 @@ public class OrganicCat extends OrganicPet {
 
 	}
 
-	public String getFavoriteFood() {
-		String[] foods;
-		foods = new String[] { "dry cat food", "canned cat food", "chicken", "tuna", "treat" };
-		favoriteFood = foods[getValueBetweenRange(0, 4)];
-		return favoriteFood;
-	}
-
 	public void feed(String selectedFood) {
 		if (selectedFood.equals(favoriteFood)) {
 			hunger += 30;
@@ -51,5 +43,10 @@ public class OrganicCat extends OrganicPet {
 		if (hunger >= maxHungerCapacity) {
 			hunger = maxHungerCapacity;
 		}
+	}
+
+	private static String determineFavoriteFood() {
+		String[] foods = { "dry cat food", "canned cat food", "chicken", "tuna", "treat" };
+		return foods[getValueBetweenRange(0, 4)];
 	}
 }

@@ -70,7 +70,7 @@ public class RobotDogTest {
 		underTest.tick();
 		underTest.tick();
 		System.out.println(underTest.getHealth());
-		underTest.performMaitenance();
+		underTest.restoreHealth();
 		System.out.println(underTest.getHealth());
 		assertEquals(100, underTest.getHealth());
 	}
