@@ -8,7 +8,7 @@ public class TextTableFactory {
 	public static final String ROW_SEPARATOR = "-";
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 	public static final String[] ORGANIC_PET_TABLE_COL_HEADERS = { "Name", "Health" };
-	
+
 	public static final int MAX_COLUMN_WIDTH = 14;
 	public static final String COLUMN_FORMAT = "%-" + MAX_COLUMN_WIDTH + "s";
 	public static final String COLUMN_SEP_FORMAT = "%-2s";
@@ -16,23 +16,20 @@ public class TextTableFactory {
 
 	private TextTableFactory() {
 	}
-	
-	
-	
-	
+
 	public static String createTable(String[] columnLabels, ArrayList<String[]> data) {
 		String[] headerAndFooter = createTableHeaderAndFooter(columnLabels);
 		StringBuilder tableBuilder = new StringBuilder();
 		tableBuilder.append(headerAndFooter[0]);
-		
-		for(String[] rowValues : data) {
+
+		for (String[] rowValues : data) {
 			tableBuilder.append(createTableRow(rowValues));
 			tableBuilder.append(LINE_SEPARATOR);
 		}
-		
+
 		tableBuilder.append(LINE_SEPARATOR);
 		tableBuilder.append(headerAndFooter[1]);
-		
+
 		return tableBuilder.toString();
 	}
 

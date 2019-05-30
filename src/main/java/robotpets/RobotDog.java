@@ -18,13 +18,13 @@ public class RobotDog extends RobotPet {
 	
 	@Override
 	public void walk() {
-		decreaseOil(5);
-		decreaseHealth(4);
+		decreaseOil(7);
+		decreaseHealth(6);
 	}
 
 	@Override
 	public void play() {
-		decreaseOil(5);
-		decreaseHealth(6);
+		decreaseOil(10);
+		decreaseHealth(11);
 	}
 }

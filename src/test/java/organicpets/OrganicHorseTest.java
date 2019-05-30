@@ -19,9 +19,9 @@ import organicpets.OrganicHorse;
 		}
 		
 		@Test
-		public void shouldHaveHungerOf7Less() {
+		public void shouldHaveHungerOf9Less() {
 			OrganicHorse testHorse = new OrganicHorse("Eddard");
-			int expectedHunger = testHorse.getHunger() - 14;
+			int expectedHunger = testHorse.getHunger() - 18;
 			testHorse.tick();
 			testHorse.tick();
 			int actualHunger = testHorse.getHunger();
@@ -29,10 +29,10 @@ import organicpets.OrganicHorse;
 		}
 		
 		@Test
-		public void hungerShouldBetween25And100() {
+		public void hungerShouldBetween50And100() {
 			OrganicHorse testHorse = new OrganicHorse("Eddard");
 			System.out.println(testHorse);
-			assertTrue((testHorse.getHunger() >= 25 && testHorse.getHunger() <= 100));
+			assertTrue((testHorse.getHunger() >= 50 && testHorse.getHunger() <= 100));
 
 }
 }

@@ -24,24 +24,17 @@ public abstract class OrganicPet extends VirtualPet {
 	protected int minBoredomCapacity;
 	protected int maxBoredomCapacity;
 
+	public abstract void tick();
+
 	public OrganicPet() {
 		this.ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
-	public OrganicPet(String name, int hunger, int thirst) {
+	public OrganicPet(String name) {
 		super(name);
-		this.hunger = hunger;
-		this.thirst = thirst;
 		this.soiled = false;
 		this.ticksUntilSoiled = 5;
-
-		this.boredom = 8;
-		this.boredomRate = 1;
-		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = 100;
 	}
-
-	public abstract void tick();
 
 	public int getHunger() {
 		return hunger;

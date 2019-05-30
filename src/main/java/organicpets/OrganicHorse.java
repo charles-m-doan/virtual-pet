@@ -4,9 +4,9 @@ public class OrganicHorse extends OrganicPet {
 	
 
 		public OrganicHorse (String name) {
-			this.name = name;
-			this.hungerRate = 7;
-			this.thirstRate = 5;
+			super(name);
+			this.hungerRate = 9;
+			this.thirstRate = 7;
 			this.boredomRate = 5;
 			this.minHungerCapacity = 0;
 			this.maxHungerCapacity = 100;
@@ -15,7 +15,7 @@ public class OrganicHorse extends OrganicPet {
 			this.minBoredomCapacity = 0;
 			this.maxBoredomCapacity = 75;
 
-			this.hunger = getValueBetweenRange(35, maxHungerCapacity);
+			this.hunger = getValueBetweenRange(50, maxHungerCapacity);
 			this.thirst = getValueBetweenRange(20, maxThirstCapacity);
 			this.boredom = getValueBetweenRange(50, maxBoredomCapacity);
 		
@@ -30,6 +30,9 @@ public class OrganicHorse extends OrganicPet {
 			decreaseThirst(thirstRate);
 			decreaseBoredom(boredomRate);
 			decreaseHealth(healthRate);
+			if(soiled == true) {
+				decreaseHealth(7);
+			}
 		}
 
 	}

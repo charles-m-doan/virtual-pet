@@ -8,6 +8,12 @@ public abstract class VirtualPet {
 	protected int health;
 	protected int healthRate;
 
+	public abstract void tick();
+
+	public abstract void play();
+
+	public abstract void walk();
+
 	public VirtualPet() {
 		this.name = "Unnamed";
 		this.health = 100;
@@ -19,12 +25,6 @@ public abstract class VirtualPet {
 		this.health = 100;
 		this.healthRate = 1;
 	}
-
-	public abstract void tick();
-
-	public abstract void play();
-
-	public abstract void walk();
 
 	public String getType() {
 		return "GenericPet";
@@ -58,14 +58,14 @@ public abstract class VirtualPet {
 		int randomValue = min + random.nextInt((max - min) + 1);
 		return randomValue;
 	}
-	
+
 	public String[] getStats() {
-		String[] petStats = {name, getType(), "" + health};
+		String[] petStats = { name, getType(), "" + health };
 		return petStats;
 	}
-	
+
 	public static String[] getFieldLabels() {
-		String[] fieldLabels = {"Name", "Type", "Health"};
+		String[] fieldLabels = { "Name", "Type", "Health" };
 		return fieldLabels;
 	}
 }

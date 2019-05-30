@@ -19,17 +19,17 @@ public class RobotDogTest {
 	}
 
 	@Test
-	public void shouldHave90OilAfter2Plays() {
+	public void shouldHave80OilAfter2Plays() {
 		underTest.play();
 		underTest.play();
-		assertEquals(90, underTest.getOil());
+		assertEquals(80, underTest.getOil());
 	}
 
 	@Test
-	public void shouldHave90OilAfter2Walks() {
+	public void shouldHave86OilAfter2Walks() {
 		underTest.walk();
 		underTest.walk();
-		assertEquals(90, underTest.getOil());
+		assertEquals(86, underTest.getOil());
 	}
 	
 	@Test
@@ -40,17 +40,17 @@ public class RobotDogTest {
 	}
 	
 	@Test
-	public void shouldHave88HealthAfter2Plays() {
+	public void shouldHave78HealthAfter2Plays() {
 		underTest.play();
 		underTest.play();
-		assertEquals(88, underTest.getHealth());
+		assertEquals(78, underTest.getHealth());
 	}
 	
 	@Test
-	public void shouldHave92HealthAfter2Walks() {
+	public void shouldHave88HealthAfter2Walks() {
 		underTest.walk();
 		underTest.walk();
-		assertEquals(92, underTest.getHealth());
+		assertEquals(88, underTest.getHealth());
 	}
 
 	@Test

@@ -3,10 +3,10 @@ package organicpets;
 public class OrganicDog extends OrganicPet {
 
 	public OrganicDog(String name) {
-		this.name = name;
+		super(name);
 		this.hungerRate = 5;
 		this.thirstRate = 5;
-		this.boredomRate = 5;
+		this.boredomRate = 7;
 		this.minHungerCapacity = 0;
 		this.maxHungerCapacity = 60;
 		this.minThirstCapacity = 0;
