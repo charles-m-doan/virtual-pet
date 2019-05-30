@@ -79,7 +79,6 @@ public class VirtualShelterTest {
 		testShelter.addPet(testPet1);
 		testShelter.addPet(testPet2);
 		testShelter.addPet(testPet3);
-
 		System.out.println(testShelter);
 		testShelter.playWithPets(new String[] { "other dog", "Mittens", "Ed" });
 		System.out.println(testShelter);

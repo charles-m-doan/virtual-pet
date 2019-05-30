@@ -44,7 +44,7 @@ public abstract class OrganicPet extends VirtualPet {
 		this.favoriteFood = "dog food";
 		this.currentHunger = 100;
 	}
-	
+
 	public abstract void feed(String selectedFood);
 
 	public void play() {
@@ -53,7 +53,7 @@ public abstract class OrganicPet extends VirtualPet {
 			boredom = 100;
 		}
 	}
-	
+
 	public int getBoredom() {
 		return boredom;
 	}
@@ -64,6 +64,14 @@ public abstract class OrganicPet extends VirtualPet {
 
 	public int getThirst() {
 		return thirst;
+	}
+
+	public int getTicksUntilSoiled() {
+		return ticksUntilSoiled;
+	}
+
+	public boolean isSoiled() {
+		return soiled;
 	}
 
 	protected void decreaseHunger(int amountToDecrease) {
@@ -87,6 +95,14 @@ public abstract class OrganicPet extends VirtualPet {
 		}
 	}
 
+	public void decreaseTicksUntilSoiled() {
+		ticksUntilSoiled--;
+		if (ticksUntilSoiled <= 0) {
+			soiled = true;
+			resetTicksUntilSoiled();
+		}
+	}
+
 	public void water() {
 		if (thirst >= maxThirstCapacity) {
 			thirst += 0;
@@ -103,7 +119,7 @@ public abstract class OrganicPet extends VirtualPet {
 		}
 		resetTicksUntilSoiled();
 	}
-	
+
 	public void cleanCage() {
 		soiled = false;
 	}
@@ -112,26 +128,26 @@ public abstract class OrganicPet extends VirtualPet {
 		ticksUntilSoiled = getValueBetweenRange(3, 5);
 	}
 
-	public int getTicksUntilSoiled() {
-		return ticksUntilSoiled;
-	}
-
-	public boolean isSoiled() {
-		return soiled;
-	}
-
-	public void decreaseTicksUntilSoiled() {
-
-		ticksUntilSoiled--;
-		if (ticksUntilSoiled <= 0) {
-			soiled = true;
-			resetTicksUntilSoiled();
+	@Override
+	public String[] getStats() {
+		String cageStatus = "clean";
+		if (soiled) {
+			cageStatus = "dirty";
 		}
+		String[] petStats = { name, getType(), "" + health, "" + hunger, "" + thirst, "" + boredom, "Spaghetti",
+				cageStatus };
+		return petStats;
+	}
+
+	public static String[] getFieldLabels() {
+		String[] fieldLabels = { "Name", "Type", "Health", "Hunger", "Thirst", "Boredom", "Fav Food", "Cage Status" };
+		return fieldLabels;
 	}
 
 	public String getFavoriteFood() {
 		return favoriteFood;
 	}
+
 	public int getCurrentHunger() {
 		return currentHunger;
 	}

@@ -9,10 +9,13 @@ import organicpets.OrganicDog;
 
 public class OrganicDogTest {
 
+	OrganicDog testDog = new OrganicDog("Pooch");
+
 	public OrganicDogTest() {
 	}
 
-	/* @Test public void shouldHaveTypeDog() { OrganicDog testDog = new
+	/*
+	 * @Test public void shouldHaveTypeDog() { OrganicDog testDog = new
 	 * OrganicDog("Pooch"); assertEquals("Dog", testDog.getType()); }
 	 * 
 	 * @Test public void shouldHaveHungerOf4Less() { OrganicDog testDog = new
@@ -50,4 +53,5 @@ public class OrganicDogTest {
 		System.out.println(testDog.getHunger());
 		assertEquals(testDog.getHunger(), expectedHunger);
 	}
+
 }

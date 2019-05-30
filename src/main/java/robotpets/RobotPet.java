@@ -8,20 +8,21 @@ public abstract class RobotPet extends VirtualPet {
 	protected boolean outOfOil;
 
 	public abstract void tick();
+
 	public abstract void walk();
-	
+
 	public RobotPet(String name) {
 		super(name);
 	}
-	
+
 	public RobotPet() {
 		this.health = 100;
 		this.oil = 100;
 		this.outOfOil = false;
 	}
 
-	public boolean isOutOfOil() {
-		return outOfOil;
+	public void performMaitenance() {
+		this.health = 100;
 	}
 
 	public void decreaseOil(int amountToDecrease) {
@@ -32,12 +33,17 @@ public abstract class RobotPet extends VirtualPet {
 		return oil;
 	}
 
+	public boolean isOutOfOil() {
+		return outOfOil;
+	}
+
 	public void fillOil() {
 		this.oil = 100;
 	}
 
-	public void performMaitenance() {
-		this.health = 100;
+	@Override
+	public String[] getStats() {
+		String[] petStats = { name, "" + health };
+		return petStats;
 	}
-
 }
