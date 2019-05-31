@@ -9,11 +9,11 @@ public class OrganicCat extends OrganicPet {
 		super(name);
 		this.hungerRate = 3;
 		this.thirstRate = 1;
-		this.boredomRate = 1;
+		this.boredomRate = 2;
 		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = getValueBetweenRange(15, 45);
+		this.maxHungerCapacity = getValueBetweenRange(30, 60);
 		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = getValueBetweenRange(10, 30);
+		this.maxThirstCapacity = getValueBetweenRange(20, 50);
 		this.minBoredomCapacity = 0;
 		this.maxBoredomCapacity = getValueBetweenRange(30, 100);
 		this.hunger = maxHungerCapacity;

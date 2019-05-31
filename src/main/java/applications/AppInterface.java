@@ -46,6 +46,7 @@ public class AppInterface {
 	private Scanner input;
 	private VirtualShelter vs;
 	private boolean continueRunning;
+	
 
 	public AppInterface(VirtualShelter vs)
 		{
@@ -98,51 +99,61 @@ public class AppInterface {
 			case 1:
 				// CREATE PET
 				petCreation();
+				vs.tickPets();
 				break;
 
 			case 2:
 				// RELEASE PET
 				petRelease();
+				vs.tickPets();
 				break;
 
 			case 3:
 				// FEED PETS
 				petFeeding();
+				vs.tickPets();
 				break;
 
 			case 4:
 				// WATER PETS
 				petWatering();
+				vs.tickPets();
 				break;
 
 			case 5:
 				// PLAY WITH PETS
 				petPlaying();
+				vs.tickPets();
 				break;
 
 			case 6:
 				// WALK PETS
 				petWalking();
+				vs.tickPets();
 				break;
 
 			case 7:
 				// CLEAN CAGES
 				petCageCleaning();
+				vs.tickPets();
 				break;
 
 			case 8:
 				// TAKE PETS TO VET
 				petVetVisiting();
+				vs.tickPets();
 				break;
 
 			case 9:
 				// OIL ROBOT PETS
 				petOiling();
+				vs.tickPets();
 				break;
 
 			case 10:
 				// REPAIR ROBOT PETS
 				petRepairing();
+				vs.tickPets();
 				break;
 
 			case 11:
