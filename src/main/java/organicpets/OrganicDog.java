@@ -11,11 +11,11 @@ public class OrganicDog extends OrganicPet {
 		this.thirstRate = 5;
 		this.boredomRate = 7;
 		this.minHungerCapacity = 0;
-		this.maxHungerCapacity = getValueBetweenRange(30, 60);
+		this.maxHungerCapacity = getValueBetweenRange(50, 90);
 		this.minThirstCapacity = 0;
-		this.maxThirstCapacity = getValueBetweenRange(20, 70);
+		this.maxThirstCapacity = getValueBetweenRange(50, 90);
 		this.minBoredomCapacity = 0;
-		this.maxBoredomCapacity = getValueBetweenRange(30, 100);
+		this.maxBoredomCapacity = getValueBetweenRange(70, 100);
 		this.hunger = maxHungerCapacity;
 		this.thirst = maxThirstCapacity;
 		this.boredom = maxBoredomCapacity;

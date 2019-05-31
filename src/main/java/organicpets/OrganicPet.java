@@ -33,7 +33,7 @@ public abstract class OrganicPet extends VirtualPet {
 		{
 		super(name);
 		this.soiled = false;
-		this.ticksUntilSoiled = 5;
+		this.ticksUntilSoiled = 10;
 		this.favoriteFood = determineFavoriteFood();
 		}
 
@@ -141,7 +141,7 @@ public abstract class OrganicPet extends VirtualPet {
 
 	public void resetTicksUntilSoiled()
 		{
-		ticksUntilSoiled = getValueBetweenRange(3, 5);
+		ticksUntilSoiled = getValueBetweenRange(7, 9);
 		}
 
 	public String getFavoriteFood()
