@@ -18,9 +18,12 @@ public class VirtualPetApp {
 		vs.addPet(new RobotDog("K-9"));
 		vs.addPet(new RobotCat("Terminator"));
 
-		AppInterface appInterface = new AppInterface(vs);
-		appInterface.startInterface();
+		//AppInterface appInterface = new AppInterface(vs);
+		//appInterface.startInterface();
 		
+		MultiSelectMenuDialogue msmd = new MultiSelectMenuDialogue("Title?", new String[]{});
+		//System.out.println(msmd.menuDisplay);
+		msmd.showDialogue();
 		
 //		String[] oPetNames = vs.getOrganicPetNames();
 //		GlobalHelpers.printStringArray(oPetNames);
