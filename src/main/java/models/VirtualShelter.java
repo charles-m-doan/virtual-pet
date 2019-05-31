@@ -286,8 +286,41 @@ public class VirtualShelter {
 		}
 
 	// PET LIST METHODS ------------------------------
+	
+	public String[] getOrganicPetNames()
+		{
+		ArrayList<OrganicPet> organicPetList = getOrganicPetList();
+		ArrayList<String> petNameList = new ArrayList<String>(organicPetList.size());
+		for (OrganicPet pet : organicPetList)
+			{
+			petNameList.add(pet.getName());
+			}
+		return (String[]) petNameList.toArray(new String[petNameList.size()]);
+		}
 
-	public String[] getPetNames()
+	public String[] getRobotPetNames()
+		{
+		ArrayList<RobotPet> robotPetList = getRobotPetList();
+		ArrayList<String> petNameList = new ArrayList<String>(robotPetList.size());
+		for (RobotPet pet : robotPetList)
+			{
+			petNameList.add(pet.getName());
+			}
+		return (String[]) petNameList.toArray(new String[petNameList.size()]);
+		}
+	
+	public String[] getAllPetNames()
+		{
+		ArrayList<VirtualPet> petList = getPetList();
+		ArrayList<String> petNameList = new ArrayList<String>(petList.size());
+		for (VirtualPet pet : petList)
+			{
+			petNameList.add(pet.getName());
+			}
+		return (String[]) petNameList.toArray(new String[petNameList.size()]);
+		}
+
+	public String[] getAllPetNames2()
 		{
 		Set<String> keys = petMap.keySet();
 		ArrayList<String> petNameList = new ArrayList<String>(keys.size());
@@ -302,6 +335,16 @@ public class VirtualShelter {
 			array[i] = petNameList.get(i);
 			}
 		return array;
+		}
+	
+	public String[] petListToNameArray(ArrayList<VirtualPet> petList)
+		{
+		ArrayList<String> petNameList = new ArrayList<String>(petList.size());
+		for (VirtualPet pet : petList)
+			{
+			petNameList.add(pet.getName());
+			}
+		return (String[]) petNameList.toArray(new String[petNameList.size()]);
 		}
 
 	public ArrayList<VirtualPet> getPetList()

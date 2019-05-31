@@ -208,7 +208,7 @@ public class AppInterface {
 
 	private void petRelease() throws Exception
 		{
-		String[] petNames = vs.getPetNames();
+		String[] petNames = vs.getAllPetNames();
 		String[] options = new String[petNames.length + 1];
 		options[0] = "Cancel";
 		for (int i = 0; i < petNames.length; i++)
