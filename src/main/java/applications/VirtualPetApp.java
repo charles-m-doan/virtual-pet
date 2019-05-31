@@ -20,20 +20,5 @@ public class VirtualPetApp {
 
 		AppInterface appInterface = new AppInterface(vs);
 		appInterface.startInterface();
-		
-		
-//		String[] oPetNames = vs.getOrganicPetNames();
-//		GlobalHelpers.printStringArray(oPetNames);
-//		
-//		System.out.println();
-//		
-//		String[] rPetNames = vs.getRobotPetNames();
-//		GlobalHelpers.printStringArray(rPetNames);
-//		
-//		System.out.println();
-//		
-//		String[] petNames = vs.getAllPetNames();
-//		GlobalHelpers.printStringArray(petNames);
-
 		}
 }
