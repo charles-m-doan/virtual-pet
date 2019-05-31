@@ -2,29 +2,34 @@ package robotpets;
 
 public class RobotDog extends RobotPet {
 
-	public RobotDog(String name) {
+	public RobotDog(String name)
+		{
 		this.name = name;
-	}
+		}
 
-	public String getType() {
+	public String getType()
+		{
 		return "Robo Dog";
-	}
+		}
 
 	@Override
-	public void tick() {
+	public void tick()
+		{
 		decreaseOil(1);
 		decreaseHealth(1);
-	}
-	
-	@Override
-	public void walk() {
-		decreaseOil(7);
-		decreaseHealth(6);
-	}
+		}
 
 	@Override
-	public void play() {
+	public void walk()
+		{
+		decreaseOil(7);
+		decreaseHealth(6);
+		}
+
+	@Override
+	public void play()
+		{
 		decreaseOil(10);
 		decreaseHealth(11);
-	}
+		}
 }

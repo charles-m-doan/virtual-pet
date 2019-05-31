@@ -11,36 +11,43 @@ public abstract class RobotPet extends VirtualPet {
 
 	public abstract void walk();
 
-	public RobotPet(String name) {
+	public RobotPet(String name)
+		{
 		super(name);
-	}
+		}
 
-	public RobotPet() {
+	public RobotPet()
+		{
 		this.health = 100;
 		this.oil = 100;
 		this.outOfOil = false;
-	}
+		}
 
-	public void decreaseOil(int amountToDecrease) {
+	public void decreaseOil(int amountToDecrease)
+		{
 		oil -= amountToDecrease;
-	}
+		}
 
-	public int getOil() {
+	public int getOil()
+		{
 		return oil;
-	}
+		}
 
-	public boolean isOutOfOil() {
+	public boolean isOutOfOil()
+		{
 		return outOfOil;
-	}
+		}
 
-	public void fillOil() {
+	public void fillOil()
+		{
 		this.oil = 100;
-	}
+		}
 
 	@Override
-	public String[] getStats() {
+	public String[] getStats()
+		{
 		String[] petStats = { name, getType(), "" + health + "/100", "" + oil + "/100", "", "", "", "", "" };
 		return petStats;
-	}
+		}
 
 }

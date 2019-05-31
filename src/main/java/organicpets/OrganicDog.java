@@ -4,7 +4,8 @@ public class OrganicDog extends OrganicPet {
 
 	protected static final String[] PREFERRED_FOODS = { "dry food", "canned food", "chicken", "beef", "dog treat", "bone" };
 
-	public OrganicDog(String name) {
+	public OrganicDog(String name)
+		{
 		super(name);
 		this.hungerRate = 5;
 		this.thirstRate = 5;
@@ -19,53 +20,69 @@ public class OrganicDog extends OrganicPet {
 		this.thirst = maxThirstCapacity;
 		this.boredom = maxBoredomCapacity;
 		this.favoriteFood = determineFavoriteFood();
-	}
+		}
 
-	public String getType() {
+	public String getType()
+		{
 		return "Dog";
-	}
+		}
 
-	public void tick() {
+	public void tick()
+		{
 		decreaseHunger(hungerRate);
 		decreaseThirst(thirstRate);
 		decreaseBoredom(boredomRate);
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
-		if (soiled == true) {
+		if (soiled == true)
+			{
 			decreaseHealth(5);
-		}
-	}
-	
-	protected boolean foodIsAmongPreferredFoods(String selectedFood) {
-		for (int i = 0; i < PREFERRED_FOODS.length; i++) {
-			if (selectedFood.equals(PREFERRED_FOODS[i])) {
-				return true;
 			}
 		}
-		return false;
-	}
 
-	public void feed(String selectedFood) {
-		if (foodIsAmongPreferredFoods(selectedFood)) {
-			if (selectedFood.equals(favoriteFood)) {
+	protected boolean foodIsAmongPreferredFoods(String selectedFood)
+		{
+		for (int i = 0; i < PREFERRED_FOODS.length; i++)
+			{
+			if (selectedFood.equals(PREFERRED_FOODS[i]))
+				{
+				return true;
+				}
+			}
+		return false;
+		}
+
+	public void feed(String selectedFood)
+		{
+		if (foodIsAmongPreferredFoods(selectedFood))
+			{
+			if (selectedFood.equals(favoriteFood))
+				{
 				hunger += 40;
 				System.out.println(this.name + " says: woof! <3");
-			} else {
+				}
+			else
+				{
 				hunger += 30;
+				}
 			}
-		} else {
+		else
+			{
 			System.out.println(this.name + " doesn't like " + selectedFood);
-		}
-		if (hunger >= maxHungerCapacity) {
+			}
+		if (hunger >= maxHungerCapacity)
+			{
 			hunger = maxHungerCapacity;
+			}
 		}
-	}
 
-	public static String[] getPreferredFoods() {
+	public static String[] getPreferredFoods()
+		{
 		return PREFERRED_FOODS;
-	}
-	
-	protected static String determineFavoriteFood() {
+		}
+
+	protected static String determineFavoriteFood()
+		{
 		return PREFERRED_FOODS[getValueBetweenRange(0, PREFERRED_FOODS.length - 1)];
-	}
+		}
 }
