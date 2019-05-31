@@ -34,9 +34,30 @@ public class OrganicDog extends OrganicPet {
 		decreaseBoredom(boredomRate);
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
+		String outputStr = null;
+		if (boredom <= 0)
+			{
+			outputStr = name + " the " + getType() + " is extremely restless.";
+			decreaseHealth(2);
+			}
 		if (soiled == true)
 			{
+			outputStr = name + " the " + getType() + " seems unhappy with its dirty cage.";
 			decreaseHealth(5);
+			}
+		if (hunger <= 0)
+			{
+			outputStr = name + " the " + getType() + " woofs and licks its lips with hunger.";
+			decreaseHealth(2);
+			}
+		if (thirst <= 0)
+			{
+			outputStr = name + " the " + getType() + " is panting with thirst.";
+			decreaseHealth(1);
+			}
+		if (outputStr != null)
+			{
+			System.out.println(outputStr);
 			}
 		}
 

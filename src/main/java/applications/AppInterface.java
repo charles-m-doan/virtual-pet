@@ -46,7 +46,6 @@ public class AppInterface {
 	private Scanner input;
 	private VirtualShelter vs;
 	private boolean continueRunning;
-	
 
 	public AppInterface(VirtualShelter vs)
 		{
@@ -78,7 +77,10 @@ public class AppInterface {
 					}
 				catch (Exception ex)
 					{
-					System.out.println(ex.getMessage());
+					if (ex.getMessage() != null)
+						{
+						System.out.println(ex.getMessage());
+						}
 					}
 				}
 			}

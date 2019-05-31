@@ -34,11 +34,32 @@ public class OrganicCat extends OrganicPet {
 		decreaseBoredom(boredomRate);
 		decreaseTicksUntilSoiled();
 		decreaseHealth(healthRate);
+
+		String outputStr = null;
+		if (boredom <= 0)
+			{
+			outputStr = name + " the " + getType() + " seems more annoyed than usual.";
+			decreaseHealth(1);
+			}
 		if (soiled == true)
 			{
+			outputStr = name + " the " + getType() + " looks disgusted with its dirty cage.";
 			decreaseHealth(7);
 			}
-
+		if (hunger <= 0)
+			{
+			outputStr = name + " the " + getType() + " meows desperately with hunger.";
+			decreaseHealth(2);
+			}
+		if (thirst <= 0)
+			{
+			outputStr = name + " the " + getType() + " is weak with thirst.";
+			decreaseHealth(1);
+			}
+		if (outputStr != null)
+			{
+			System.out.println(outputStr);
+			}
 		}
 
 	protected boolean foodIsAmongPreferredFoods(String selectedFood)
