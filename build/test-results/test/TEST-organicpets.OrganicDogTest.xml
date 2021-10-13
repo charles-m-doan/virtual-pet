@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="organicpets.OrganicDogTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-10-13T21:33:28" hostname="DESKTOP-LETABRL" time="0.001">
+  <properties/>
+  <testcase name="favoriteFoodShouldAdd40Hunger" classname="organicpets.OrganicDogTest" time="0.001"/>
+  <testcase name="foodShouldBeAmongPreferredFoods" classname="organicpets.OrganicDogTest" time="0.0"/>
+  <testcase name="shouldHaveFavoriteFood" classname="organicpets.OrganicDogTest" time="0.0"/>
+  <system-out><![CDATA[81
+71
+41
+Pooch says: woof! <3
+81
+Fav Food: dry food
+Preferred Foods: [Ljava.lang.String;@155713ce
+dog treat
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

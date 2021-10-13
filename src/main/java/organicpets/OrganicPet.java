@@ -171,6 +171,10 @@ public abstract class OrganicPet extends VirtualPet {
 		return false;
 		}
 
+	public void setTicksUntilSoiled(int ticksUntilSoiled) {
+		this.ticksUntilSoiled = ticksUntilSoiled;
+	}
+
 	@Override
 	public String[] getStats()
 		{

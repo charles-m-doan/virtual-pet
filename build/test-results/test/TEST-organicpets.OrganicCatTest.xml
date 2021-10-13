@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="organicpets.OrganicCatTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-10-13T21:33:28" hostname="DESKTOP-LETABRL" time="0.008">
+  <properties/>
+  <testcase name="favoriteFoodShouldAdd30orMaxHunger" classname="organicpets.OrganicCatTest" time="0.008"/>
+  <testcase name="shouldHaveFavoriteFood" classname="organicpets.OrganicCatTest" time="0.0"/>
+  <system-out><![CDATA[Pre-Tick Hunger 55
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat looks disgusted with its dirty cage.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat meows desperately with hunger.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Ninja the Cat is weak with thirst.
+Post-Tick/Pre-Feed Hunger 0
+Ninja purrs <3
+Post-Feed Hunger 30
+canned food
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

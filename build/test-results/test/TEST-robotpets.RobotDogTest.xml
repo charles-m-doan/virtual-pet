@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="robotpets.RobotDogTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-10-13T21:33:28" hostname="DESKTOP-LETABRL" time="0.002">
+  <properties/>
+  <testcase name="shouldHave98HealthAfter2Ticks" classname="robotpets.RobotDogTest" time="0.0"/>
+  <testcase name="shouldHave100HealthAfterPerformingMaintenance" classname="robotpets.RobotDogTest" time="0.001"/>
+  <testcase name="shouldHave88HealthAfter2Walks" classname="robotpets.RobotDogTest" time="0.0"/>
+  <testcase name="shouldHave98OilAfter2Ticks" classname="robotpets.RobotDogTest" time="0.0"/>
+  <testcase name="shouldHave78HealthAfter2Plays" classname="robotpets.RobotDogTest" time="0.0"/>
+  <testcase name="shouldHave80OilAfter2Plays" classname="robotpets.RobotDogTest" time="0.0"/>
+  <testcase name="shouldHave86OilAfter2Walks" classname="robotpets.RobotDogTest" time="0.001"/>
+  <testcase name="shouldHave100OilAfterFilling" classname="robotpets.RobotDogTest" time="0.0"/>
+  <system-out><![CDATA[97
+100
+97
+100
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

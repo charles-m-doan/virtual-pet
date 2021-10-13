@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="organicpets.OrganicPetTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-10-13T21:33:28" hostname="DESKTOP-LETABRL" time="0.002">
+  <properties/>
+  <testcase name="bordeomShouldIncrease" classname="organicpets.OrganicPetTest" time="0.001"/>
+  <testcase name="shouldResetSoilCounterAfterWalking" classname="organicpets.OrganicPetTest" time="0.0"/>
+  <testcase name="shouldTestCageIsClean" classname="organicpets.OrganicPetTest" time="0.0"/>
+  <testcase name="pet_will_soil_after_5_ticks" classname="organicpets.OrganicPetTest" time="0.0"/>
+  <system-out><![CDATA[89
+Jeff the Dog seems unhappy with its dirty cage.
+Jeff the Dog seems unhappy with its dirty cage.
+Jeff the Dog seems unhappy with its dirty cage.
+Jeff the Dog seems unhappy with its dirty cage.
+Jeff the Dog seems unhappy with its dirty cage.
+Jeff the Dog is panting with thirst.
+Jeff the Dog is panting with thirst.
+0
+22
+Jeff the Dog seems unhappy with its dirty cage.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

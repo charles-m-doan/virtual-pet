@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="models.VirtualShelterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-10-13T21:33:28" hostname="DESKTOP-LETABRL" time="0.009">
+  <properties/>
+  <testcase name="canAddPetToVirtualShelter" classname="models.VirtualShelterTest" time="0.002"/>
+  <testcase name="virtualShelterShouldHave0Pets" classname="models.VirtualShelterTest" time="0.0"/>
+  <testcase name="playerCanViewStatsForAllPets" classname="models.VirtualShelterTest" time="0.007"/>
+  <testcase name="playerCanViewPetStats" classname="models.VirtualShelterTest" time="0.0"/>
+  <system-out><![CDATA[--Pets In Shelter--
+other dog : Dog
+Ninja : Cat
+Mittens : Cat
+
+dog : Dog
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -11,7 +11,8 @@ public class OrganicPetTest {
 	OrganicPet underTest = new OrganicDog("Jeff");
 
 	@Test
-	public void petWillSoilBetween3And5Ticks() {
+	public void pet_will_soil_after_5_ticks() {
+		underTest.setTicksUntilSoiled(5);
 		underTest.tick();
 		underTest.tick();
 		underTest.tick();
@@ -41,32 +42,7 @@ public class OrganicPetTest {
 		underTest.cleanCage();
 		assertFalse(underTest.isSoiled());
 	}
-/*	@Test
-	public void waterShouldFillByHalf() {
-		int thirstExpected = underTest.getThirst()/2; 
-		System.out.println(underTest.getThirst());
-		underTest.tick();	
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();	
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		underTest.tick();
-		System.out.println(underTest.getThirst());
-		underTest.water();
-		System.out.println(underTest.getThirst());
-		assertEquals(thirstExpected, underTest.getThirst());
-	}
-	*/
+
 	@Test
 	public void bordeomShouldIncrease() {
 		System.out.println(underTest.getBoredom());
@@ -92,12 +68,5 @@ public class OrganicPetTest {
 		System.out.println(underTest.getBoredom());
 		assertTrue(underTest.getBoredom() >= expectedBoredom);
 	}
-
-//	@Test
-//	public void shouldHaveFavoriteFood() {
-//		assertEquals("dry dog food", underTest.getFavoriteFood());
-		
-
-//	}
 
 }
