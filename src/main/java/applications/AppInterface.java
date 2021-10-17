@@ -41,6 +41,7 @@ public class AppInterface {
 	// private static final String[] FOOD_MENU_OPTIONS = getFoodOptions();
 	// private static final String FOOD_MENU_DISPLAY = assembleMenuDisplay(FOOD_MENU_OPTIONS);
 	// private static final String FOOD_PROMPT = "Food Choice: ";
+	// testing to see if I can push without needing to enter the access token manually
 
 	// INSTANCE VARIABLES
 	private Scanner input;
